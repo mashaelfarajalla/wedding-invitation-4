@@ -59,7 +59,6 @@
   button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
   .wrap{max-width:580px;margin:0 auto;position:relative}
 
-  #sparkles{position:fixed;inset:0;pointer-events:none;z-index:30}
 
   /* ================= NOTCHED CARD SHAPE ================= */
   /* concave (cut-in) corners of radius --n, like a classic invitation card */
@@ -101,7 +100,34 @@
   .frame i:nth-child(3){left:calc(-1*(var(--g) + var(--R)) - 1px);bottom:calc(-1*(var(--g) + var(--R)) - 1px)}
   .frame i:nth-child(4){right:calc(-1*(var(--g) + var(--R)) - 1px);bottom:calc(-1*(var(--g) + var(--R)) - 1px)}
 
-  /* ================= HERO (notched card) ================= */
+  /* ================= ARCHED CARD SHAPE ================= */
+  /* one arch across the whole top (doorway style) + the usual concave bottom corners; --a = arch height */
+  .arched{
+    --n:38px;--a:170px;
+    border-radius:50% 50% 0 0/var(--a) var(--a) 0 0;
+    -webkit-mask:
+      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
+      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
+    mask:
+      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
+      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
+  }
+  .arched .frame{
+    border-radius:50% 50% 0 0/calc(var(--a) - var(--g)) calc(var(--a) - var(--g)) 0 0;
+    -webkit-mask:
+      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
+      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
+    mask:
+      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
+      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
+  }
+  .arched .frame i:nth-child(-n+2){display:none}
+
+  /* ================= HERO (arched card) ================= */
   .hero{
     position:relative;height:100svh;min-height:600px;
     background:
@@ -125,8 +151,8 @@
     content:"";position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(90deg,rgba(0,0,0,.25),transparent 18%,transparent 82%,rgba(0,0,0,.25));
   }
-  .chandelier{width:min(46%,170px);height:auto;filter:drop-shadow(0 0 14px rgba(255,220,150,.55));transform-origin:top center}
-  /* fills the space between chandelier and bouquet; padding-bottom (% of panel width) reserves the bouquet's height */
+  .doves{position:relative;z-index:1;width:min(46%,170px);height:auto;margin-top:22px;filter:drop-shadow(0 0 14px rgba(255,220,150,.45))}
+  /* fills the space between doves and the garland; padding-bottom (% of panel width) reserves the garland's height */
   .hero-center{
     flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
     position:relative;z-index:1;width:100%;padding-bottom:30%;
@@ -139,20 +165,24 @@
   .names .amp{display:block;font-family:'Amiri',serif;font-size:.42em;font-weight:400;color:var(--gold-2);line-height:1.2;margin:14px 0}
   .hero-date{font-size:14px;color:var(--cream);opacity:.9;margin-top:8px;letter-spacing:.2px;text-align:center;padding:0 10px}
   .hero-venue{margin-top:4px;color:var(--gold-2)}
-  /* sits on the panel's bottom edge so the panel itself clips it — no flat cut line */
-  .bouquet{position:absolute;left:0;bottom:0;width:100%;height:auto;z-index:2;filter:drop-shadow(0 -4px 10px rgba(0,0,0,.28))}
+  /* rose garland along the bottom; wider than the panel and sunk below its edge so the panel clips it */
+  .bouquet{position:absolute;left:-8%;bottom:-4%;width:116%;height:auto;z-index:2;pointer-events:none;
+    filter:drop-shadow(0 -6px 14px rgba(0,0,0,.35)) drop-shadow(0 0 22px rgba(255,245,225,.10))}
 
-  /* mobile: the panel fills the whole screen; only its notched corners show the pattern */
+  /* mobile: the panel fills the whole screen; only its arch and notched corners show the pattern */
   @media (max-width:600px){
     .hero{min-height:0}
     .hero .wrap{max-width:none}
-    .panel{inset:0;--n:34px;padding-top:max(14px,env(safe-area-inset-top))}
+    .panel{inset:0;--n:34px;--a:140px;padding-top:max(14px,env(safe-area-inset-top))}
     .panel .frame{--g:10px}
+    /* the fixed nav covers the screen bottom here, so lift the garland just enough to clear it */
+    .bouquet{bottom:34px}
+    .hero-center{padding-bottom:calc(30% + 34px)}
   }
 
   /* hero entrance (after opening) */
-  .hero .chandelier,.hero .names,.hero .hero-date,.hero .bouquet{opacity:0}
-  body.opened .chandelier{animation:swingIn 1.6s .2s cubic-bezier(.2,.8,.2,1) both}
+  .hero .doves,.hero .names,.hero .hero-date,.hero .bouquet{opacity:0}
+  body.opened .doves{animation:fadeUp 1.4s .2s ease both}
   body.opened .names{animation:fadeUp 1.2s .7s ease both}
   body.opened .hero-date{animation:fadeUp 1.2s 1s ease both}
   body.opened .bouquet{animation:rise 1.4s .4s cubic-bezier(.2,.8,.2,1) both}
@@ -221,6 +251,11 @@
   .text.sm{font-size:13px;line-height:1.9}
   .sub{margin:-6px 0 18px}
   .text strong{color:var(--cream);font-weight:500}
+  /* rings-on-blossoms crest that opens the invitation card */
+  .crest{display:block;width:min(44%,160px);height:auto;margin:-6px auto 6px;
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,.35)) drop-shadow(0 0 24px rgba(255,225,170,.12))}
+  .reveal.in .crest{animation:crestIn 1.4s .15s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes crestIn{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:none}}
   .families{display:grid;grid-template-columns:1fr 1fr;margin:22px 0 12px}
   .families div{padding:10px 6px}
   .families div+div{border-right:1px solid var(--glass-line)}
@@ -418,7 +453,7 @@
   @keyframes bob{to{transform:translateY(-3px)}}
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
-    .reveal,.hero .chandelier,.hero .names,.hero .hero-date,.hero .bouquet{opacity:1;transform:none}
+    .reveal,.hero .doves,.hero .names,.hero .hero-date,.hero .bouquet{opacity:1;transform:none}
   }
 </style>
 <link rel="icon" type="image/png" href="mersal-favicon.png">
@@ -427,7 +462,6 @@
 </head>
 <body class="locked">
 
-<canvas id="sparkles"></canvas>
 
 <!-- shared icon symbols (consistent across devices, unlike emoji) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -451,52 +485,10 @@
 <!-- ============ HERO ============ -->
 <header class="hero" id="home">
   <div class="wrap" style="height:100%">
-    <div class="panel notched">
+    <div class="panel arched">
       <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <!-- chandelier -->
-      <svg class="chandelier" viewBox="0 0 200 170" fill="none" stroke="url(#gld)" stroke-width="1.6" stroke-linecap="round">
-        <defs>
-          <linearGradient id="gld" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#fff1c8"/><stop offset=".5" stop-color="#e2bf74"/><stop offset="1" stop-color="#b38a40"/>
-          </linearGradient>
-          <radialGradient id="flame" cx=".5" cy=".6" r=".5">
-            <stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#ffe7a8"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <path d="M100 0v28"/>
-        <circle cx="100" cy="32" r="4"/>
-        <path d="M100 36v20"/>
-        <ellipse cx="100" cy="60" rx="8" ry="5"/>
-        <path d="M100 65v30"/>
-        <!-- arms -->
-        <path d="M100 78c-20 0-40 4-58 20M100 78c20 0 40 4 58 20"/>
-        <path d="M100 86c-14 2-26 10-34 22M100 86c14 2 26 10 34 22"/>
-        <path d="M100 70c-28-2-58 6-78 30M100 70c28-2 58 6 78 30"/>
-        <!-- bowl -->
-        <path d="M60 112c10 22 70 22 80 0"/>
-        <path d="M70 112h60"/>
-        <path d="M100 126v14"/><circle cx="100" cy="146" r="5" fill="url(#gld)"/>
-        <!-- crystals -->
-        <g stroke-width="1.2">
-          <path d="M42 98v12M66 108v12M134 108v12M158 98v12M22 100v14M178 100v14"/>
-          <path d="M80 126v10M120 126v10M90 130v14M110 130v14"/>
-        </g>
-        <g fill="url(#gld)" stroke="none">
-          <path d="M42 112l3 5-3 5-3-5z"/><path d="M66 122l3 5-3 5-3-5z"/><path d="M134 122l3 5-3 5-3-5z"/>
-          <path d="M158 112l3 5-3 5-3-5z"/><path d="M22 116l3 5-3 5-3-5z"/><path d="M178 116l3 5-3 5-3-5z"/>
-          <path d="M80 138l2.5 4-2.5 4-2.5-4z"/><path d="M120 138l2.5 4-2.5 4-2.5-4z"/>
-          <path d="M90 146l2.5 4-2.5 4-2.5-4z"/><path d="M110 146l2.5 4-2.5 4-2.5-4z"/>
-        </g>
-        <!-- candles -->
-        <g>
-          <path d="M38 98h8M62 108h8M130 108h8M154 98h8M18 100h8M174 100h8"/>
-          <path d="M42 98v-8M66 108v-8M134 108v-8M158 98v-8M22 100v-8M178 100v-8"/>
-        </g>
-        <g stroke="none" fill="url(#flame)">
-          <circle cx="42" cy="85" r="7"/><circle cx="66" cy="95" r="7"/><circle cx="134" cy="95" r="7"/>
-          <circle cx="158" cy="85" r="7"/><circle cx="22" cy="87" r="7"/><circle cx="178" cy="87" r="7"/>
-        </g>
-      </svg>
+      <!-- two doves with rings -->
+      <img class="doves" src="images/doves.png" alt="" aria-hidden="true">
 
       <div class="hero-center">
         <h1 class="names">
@@ -508,7 +500,7 @@
         <p class="hero-date hero-venue" data-f="venueName"></p>
       </div>
 
-      <img class="bouquet" src="images/bouquet.svg" width="400" height="240" alt="" decoding="async">
+      <img class="bouquet" src="images/roses-garland.webp" width="1003" height="284" alt="" decoding="async">
     </div>
   </div>
 </header>
@@ -518,6 +510,7 @@
   <!-- verse + invitation -->
   <section class="reveal">
     <div class="card">
+      <img class="crest" src="images/rings.webp" width="322" height="225" alt="" loading="lazy" decoding="async">
       <div class="verse">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
       <p class="text">بكل فرحٍ وسرور، يتشرّف</p>
       <div class="families">
@@ -731,7 +724,7 @@ const timeAr = f({ hour: "numeric", minute: "2-digit" });
 $("#heroDate").textContent = `${f({ weekday: "long" })} ${f({ day: "numeric" })} ${f({ month: "long" })} ${f({ year: "numeric" })} في ${timeAr}`;
 $("#footDate").textContent = [eventDate.getDate(), eventDate.getMonth() + 1, eventDate.getFullYear()].join(" · ");
 
-/* bouquet: static images/bouquet.svg (pre-rendered; parsing ~1.7k SVG nodes on load was the main layout cost) */
+/* hero roses: static images/roses-garland.webp (two mirrored copies of the rose spray, pre-composed) */
 
 
 /* ---- program timeline ---- */
@@ -828,7 +821,6 @@ $("#openBtn").addEventListener("click", () => {
   document.body.classList.add("opened");
   setTimeout(() => { document.body.classList.remove("locked"); autoScroll(); }, 2000);
   setMusic(true);
-  sparkles();
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 }, { once: true });
 /* slow auto-scroll to the end; any touch, wheel or click by the guest stops it */
@@ -1004,35 +996,6 @@ function toast(t, ico = "checkPath") {
   el.innerHTML = (ico ? icon(ico, "") : "") + `<span>${esc(t)}</span>`;
   el.classList.add("show");
   clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("show"), 2200);
-}
-
-/* ---- floating sparkles ----
-   started on open: while the intro is up they would sit under the blurred curtains and force a re-blur every frame */
-function sparkles() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const c = $("#sparkles"), ctx = c.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 2);
-  let W, H;
-  const resize = () => { W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
-  resize(); addEventListener("resize", resize);
-  // glowing dot pre-rendered once; drawImage is far cheaper than shadowBlur on every particle every frame
-  const S = 32, dot = document.createElement("canvas"), dctx = dot.getContext("2d");
-  dot.width = dot.height = S;
-  dctx.shadowColor = "rgba(255,240,200,.9)"; dctx.shadowBlur = 6 * S / 16; dctx.fillStyle = "rgb(255,250,235)";
-  dctx.beginPath(); dctx.arc(S / 2, S / 2, S / 8, 0, 6.283); dctx.fill();
-  const mk = init => ({ x: Math.random() * W, y: init ? Math.random() * H : H + 10, r: .6 + Math.random() * 1.8,
-    vy: .15 + Math.random() * .35, ph: Math.random() * 6.28, sp: .01 + Math.random() * .02 });
-  const P = Array.from({ length: W < 600 ? 40 : 70 }, () => mk(true));
-  (function loop() {
-    ctx.clearRect(0, 0, W, H);
-    for (let i = 0; i < P.length; i++) {
-      const p = P[i]; p.y -= p.vy; p.ph += p.sp; p.x += Math.sin(p.ph) * .25;
-      if (p.y < -10) P[i] = mk(false);
-      const s = p.r * 8;   // sprite dot radius is S/8, so this maps it to p.r
-      ctx.globalAlpha = Math.max(.08, .35 + Math.sin(p.ph * 2) * .3);
-      ctx.drawImage(dot, p.x - s / 2, p.y - s / 2, s, s);
-    }
-    requestAnimationFrame(loop);
-  })();
 }
 </script>
 </body>
