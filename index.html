@@ -1,1002 +1,2443 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>دعوة زفاف</title>
-<meta name="description" content="بكل فرح ندعوكم لمشاركتنا حفل زفافنا">
-<meta property="og:title" content="دعوة زفاف">
-<meta property="og:description" content="بكل فرح ندعوكم لمشاركتنا حفل زفافنا">
-<meta name="theme-color" content="#1c3529">
-<link rel="preload" href="images/mersal.webp" as="image" type="image/webp" fetchpriority="high">
-<link rel="preload" href="fonts/ArefRuqaa-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/Tajawal-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
-<!-- non-blocking: the intro screen has no text, so the font faces are not needed for first paint -->
-<link href="fonts/fonts.css" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="fonts/fonts.css" rel="stylesheet"></noscript>
-<style>
-  :root{
-    --green:#1c3529;
-    --green-2:#22402f;
-    --green-3:#2b4c3a;
-    --cream:#f1ece1;
-    --muted:rgba(241,236,225,.7);
-    --gold:#d6b26a;
-    --gold-2:#f0d79a;
-    --gold-dark:#a8823d;
-    --light:#efeee9;
-    --glass:rgba(255,255,255,.05);
-    --glass-line:rgba(255,255,255,.13);
-    --stripes:repeating-linear-gradient(90deg,#1b3428 0 7px,#21402f 7px 9px,#1d3829 9px 16px,#183023 16px 18px);
-    --gold-grad:linear-gradient(135deg,var(--gold-2),var(--gold) 50%,var(--gold-dark));
-    --r-lg:24px;   /* cards, footer */
-    --r-md:18px;   /* boxes inside cards: map, calendar */
-    --r-sm:14px;   /* inputs, choices, tiles, wishes */
-    --field-bg:rgba(0,0,0,.2);
-  }
-  .ico-heart{
-    display:inline-block;width:1.15em;height:1.15em;vertical-align:-.22em;margin-inline:4px;
-    fill:url(#heartGrad);filter:drop-shadow(0 0 5px rgba(240,215,154,.55));
-    animation:beat 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box;
-  }
-  @keyframes beat{0%,40%,100%{transform:scale(1)}10%{transform:scale(1.18)}20%{transform:scale(.96)}30%{transform:scale(1.1)}}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-width:thin;scrollbar-color:var(--gold) var(--green)}
-  ::-webkit-scrollbar{width:8px;height:8px}
-  ::-webkit-scrollbar-track{background:var(--green)}
-  ::-webkit-scrollbar-thumb{background:var(--gold-grad);border-radius:8px;border:2px solid var(--green)}
-  ::-webkit-scrollbar-thumb:hover{background:var(--gold-2)}
-  body{
-    font-family:'Tajawal',sans-serif;
-    background:var(--green);
-    background-image:var(--stripes);
-    color:var(--cream);
-    overflow-x:hidden;
-    line-height:1.8;
-  }
-  body.locked{overflow:hidden;height:100vh}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-  .wrap{max-width:580px;margin:0 auto;position:relative}
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <!-- link previews (WhatsApp etc.) don't run JS: update these names by hand along with CONFIG -->
+    <title>علي & دينا | ليلة العمر</title>
+    <meta
+      name="description"
+      content="نبدأ حكايتنا معاً، وأجمل ما فيها أن تكونوا معنا"
+    />
+    <meta property="og:title" content="علي & دينا | ليلة العمر" />
+    <meta
+      property="og:description"
+      content="نبدأ حكايتنا معاً، وأجمل ما فيها أن تكونوا معنا"
+    />
+    <meta name="theme-color" content="#1c3529" />
+    <link
+      rel="preload"
+      href="images/mersal.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="fonts/ArefRuqaa-700-arabic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/Tajawal-400-arabic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <!-- non-blocking: the intro screen has no text, so the font faces are not needed for first paint -->
+    <link
+      href="fonts/fonts.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript><link href="fonts/fonts.css" rel="stylesheet" /></noscript>
+    <style>
+      :root {
+        --green: #1c3529;
+        --green-2: #22402f;
+        --green-3: #2b4c3a;
+        --cream: #f1ece1;
+        --muted: rgba(241, 236, 225, 0.7);
+        --gold: #d6b26a;
+        --gold-2: #f0d79a;
+        --gold-dark: #a8823d;
+        --light: #efeee9;
+        --glass: rgba(255, 255, 255, 0.05);
+        --glass-line: rgba(255, 255, 255, 0.13);
+        --stripes: repeating-linear-gradient(
+          90deg,
+          #1b3428 0 7px,
+          #21402f 7px 9px,
+          #1d3829 9px 16px,
+          #183023 16px 18px
+        );
+        --gold-grad: linear-gradient(
+          135deg,
+          var(--gold-2),
+          var(--gold) 50%,
+          var(--gold-dark)
+        );
+        --r-lg: 24px; /* cards, footer */
+        --r-md: 18px; /* boxes inside cards: map, calendar */
+        --r-sm: 14px; /* inputs, choices, tiles, wishes */
+        --field-bg: rgba(0, 0, 0, 0.2);
+      }
+      .ico-heart {
+        display: inline-block;
+        width: 1.15em;
+        height: 1.15em;
+        vertical-align: -0.22em;
+        margin-inline: 4px;
+        fill: url(#heartGrad);
+        filter: drop-shadow(0 0 5px rgba(240, 215, 154, 0.55));
+        animation: beat 2.4s ease-in-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      @keyframes beat {
+        0%,
+        40%,
+        100% {
+          transform: scale(1);
+        }
+        10% {
+          transform: scale(1.18);
+        }
+        20% {
+          transform: scale(0.96);
+        }
+        30% {
+          transform: scale(1.1);
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gold) var(--green);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--green);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold-grad);
+        border-radius: 8px;
+        border: 2px solid var(--green);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--gold-2);
+      }
+      body {
+        font-family: "Tajawal", sans-serif;
+        background: var(--green);
+        background-image: var(--stripes);
+        color: var(--cream);
+        overflow-x: hidden;
+        line-height: 1.8;
+      }
+      body.locked {
+        overflow: hidden;
+        height: 100vh;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        color: inherit;
+      }
+      .wrap {
+        max-width: 580px;
+        margin: 0 auto;
+        position: relative;
+      }
 
+      /* ================= NOTCHED CARD SHAPE ================= */
+      /* concave (cut-in) corners of radius --n, like a classic invitation card */
+      .notched {
+        --n: 38px;
+        -webkit-mask:
+          radial-gradient(circle var(--n) at 0 0, #0000 98%, #000) 0 0/51% 51%
+            no-repeat,
+          radial-gradient(circle var(--n) at 100% 0, #0000 98%, #000) 100% 0/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 0 100%, #0000 98%, #000) 0 100%/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 100% 100%, #0000 98%, #000) 100%
+            100%/51% 51% no-repeat;
+        mask:
+          radial-gradient(circle var(--n) at 0 0, #0000 98%, #000) 0 0/51% 51%
+            no-repeat,
+          radial-gradient(circle var(--n) at 100% 0, #0000 98%, #000) 100% 0/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 0 100%, #0000 98%, #000) 0 100%/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 100% 100%, #0000 98%, #000) 100%
+            100%/51% 51% no-repeat;
+      }
+      /* gold hairline inset --g inside a .notched box; its corner arcs are concentric with the notches */
+      .frame {
+        --g: 12px;
+        --R: calc(var(--n) + var(--g));
+        position: absolute;
+        inset: var(--g);
+        pointer-events: none;
+        overflow: hidden;
+        border: 1px solid rgba(214, 178, 106, 0.5);
+        -webkit-mask:
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(-1 * var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 0/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(-1 * var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 0/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 100%/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 100%/51% 51% no-repeat;
+        mask:
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(-1 * var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 0/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(-1 * var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 0/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 100%/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 100%/51% 51% no-repeat;
+      }
+      .frame i {
+        position: absolute;
+        width: calc(2 * var(--R));
+        height: calc(2 * var(--R));
+        border-radius: 50%;
+        border: 1px solid rgba(214, 178, 106, 0.5);
+      }
+      .frame i:nth-child(1) {
+        left: calc(-1 * (var(--g) + var(--R)) - 1px);
+        top: calc(-1 * (var(--g) + var(--R)) - 1px);
+      }
+      .frame i:nth-child(2) {
+        right: calc(-1 * (var(--g) + var(--R)) - 1px);
+        top: calc(-1 * (var(--g) + var(--R)) - 1px);
+      }
+      .frame i:nth-child(3) {
+        left: calc(-1 * (var(--g) + var(--R)) - 1px);
+        bottom: calc(-1 * (var(--g) + var(--R)) - 1px);
+      }
+      .frame i:nth-child(4) {
+        right: calc(-1 * (var(--g) + var(--R)) - 1px);
+        bottom: calc(-1 * (var(--g) + var(--R)) - 1px);
+      }
 
-  /* ================= NOTCHED CARD SHAPE ================= */
-  /* concave (cut-in) corners of radius --n, like a classic invitation card */
-  .notched{
-    --n:38px;
-    -webkit-mask:
-      radial-gradient(circle var(--n) at 0 0,#0000 98%,#000) 0 0/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 0,#0000 98%,#000) 100% 0/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-    mask:
-      radial-gradient(circle var(--n) at 0 0,#0000 98%,#000) 0 0/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 0,#0000 98%,#000) 100% 0/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-  }
-  /* gold hairline inset --g inside a .notched box; its corner arcs are concentric with the notches */
-  .frame{
-    --g:12px;--R:calc(var(--n) + var(--g));
-    position:absolute;inset:var(--g);pointer-events:none;overflow:hidden;
-    border:1px solid rgba(214,178,106,.5);
-    -webkit-mask:
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(-1*var(--g)),#0000 98%,#000) 0 0/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(-1*var(--g)),#0000 98%,#000) 100% 0/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-    mask:
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(-1*var(--g)),#0000 98%,#000) 0 0/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(-1*var(--g)),#0000 98%,#000) 100% 0/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-  }
-  .frame i{
-    position:absolute;width:calc(2*var(--R));height:calc(2*var(--R));border-radius:50%;
-    border:1px solid rgba(214,178,106,.5);
-  }
-  .frame i:nth-child(1){left:calc(-1*(var(--g) + var(--R)) - 1px);top:calc(-1*(var(--g) + var(--R)) - 1px)}
-  .frame i:nth-child(2){right:calc(-1*(var(--g) + var(--R)) - 1px);top:calc(-1*(var(--g) + var(--R)) - 1px)}
-  .frame i:nth-child(3){left:calc(-1*(var(--g) + var(--R)) - 1px);bottom:calc(-1*(var(--g) + var(--R)) - 1px)}
-  .frame i:nth-child(4){right:calc(-1*(var(--g) + var(--R)) - 1px);bottom:calc(-1*(var(--g) + var(--R)) - 1px)}
+      /* ================= ARCHED CARD SHAPE ================= */
+      /* one arch across the whole top (doorway style) + the usual concave bottom corners; --a = arch height */
+      .arched {
+        --n: 38px;
+        --a: 170px;
+        border-radius: 50% 50% 0 0 / var(--a) var(--a) 0 0;
+        -webkit-mask:
+          linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+          radial-gradient(circle var(--n) at 0 100%, #0000 98%, #000) 0 100%/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 100% 100%, #0000 98%, #000) 100%
+            100%/51% 51% no-repeat;
+        mask:
+          linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+          radial-gradient(circle var(--n) at 0 100%, #0000 98%, #000) 0 100%/51%
+            51% no-repeat,
+          radial-gradient(circle var(--n) at 100% 100%, #0000 98%, #000) 100%
+            100%/51% 51% no-repeat;
+      }
+      .arched .frame {
+        border-radius: 50% 50% 0 0 / calc(var(--a) - var(--g))
+          calc(var(--a) - var(--g)) 0 0;
+        -webkit-mask:
+          linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 100%/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 100%/51% 51% no-repeat;
+        mask:
+          linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(-1 * var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            0 100%/51% 51% no-repeat,
+          radial-gradient(
+              circle calc(var(--R) - 1px) at calc(100% + var(--g))
+                calc(100% + var(--g)),
+              #0000 98%,
+              #000
+            )
+            100% 100%/51% 51% no-repeat;
+      }
+      .arched .frame i:nth-child(-n + 2) {
+        display: none;
+      }
 
-  /* ================= ARCHED CARD SHAPE ================= */
-  /* one arch across the whole top (doorway style) + the usual concave bottom corners; --a = arch height */
-  .arched{
-    --n:38px;--a:170px;
-    border-radius:50% 50% 0 0/var(--a) var(--a) 0 0;
-    -webkit-mask:
-      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
-      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-    mask:
-      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
-      radial-gradient(circle var(--n) at 0 100%,#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle var(--n) at 100% 100%,#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-  }
-  .arched .frame{
-    border-radius:50% 50% 0 0/calc(var(--a) - var(--g)) calc(var(--a) - var(--g)) 0 0;
-    -webkit-mask:
-      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-    mask:
-      linear-gradient(#000 0 0) 0 0/100% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(-1*var(--g)) calc(100% + var(--g)),#0000 98%,#000) 0 100%/51% 51% no-repeat,
-      radial-gradient(circle calc(var(--R) - 1px) at calc(100% + var(--g)) calc(100% + var(--g)),#0000 98%,#000) 100% 100%/51% 51% no-repeat;
-  }
-  .arched .frame i:nth-child(-n+2){display:none}
+      /* ================= HERO (arched card) ================= */
+      .hero {
+        position: relative;
+        height: 100svh;
+        min-height: 600px;
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='124' viewBox='0 0 120 124'%3E%3Cdefs%3E%3Cg id='s' stroke='%231c3529' stroke-opacity='.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg fill='none' stroke-width='.9'%3E%3Cpath d='M20 70C18 56 17 44 21 33C24 25 29 18 33 12'/%3E%3Cpath d='M21 36C17 30 12 26 7 24'/%3E%3C/g%3E%3Cg fill='%231c3529' fill-opacity='.55' stroke-width='.7'%3E%3Cpath d='M19 54C14 52 10 47 9 41C14 42 18 47 19 54Z'/%3E%3Cpath d='M21 45C26 44 30 40 31 34C26 35 22 39 21 45Z'/%3E%3Cpath d='M26 23C30 23 33 21 35 18C31 18 28 20 26 23Z'/%3E%3Cpath d='M33 12C29 11 28 6 30 2L32 4.5L34 1L35.5 4.5L38 2.5C38.5 7 37 11 33 12Z'/%3E%3Cpath d='M7 24C4 22 3 18 4 14L6 16.5L7 13L8.5 16L10.5 14.5C11 19 10 22.5 7 24Z'/%3E%3C/g%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s' transform='translate(8 6)'/%3E%3Cuse href='%23s' transform='translate(108 46) scale(-1 1)'/%3E%3Cg fill='%231c3529' fill-opacity='.8'%3E%3Ccircle cx='90' cy='18' r='1.2'/%3E%3Ccircle cx='30' cy='104' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+          #ffffff;
+        overflow: hidden;
+      }
+      .panel {
+        position: absolute;
+        left: 7%;
+        right: 7%;
+        top: 3.5%;
+        bottom: 3.5%;
+        --n: 46px;
+        background:
+          radial-gradient(
+            ellipse 70% 40% at 50% 10%,
+            rgba(255, 240, 200, 0.22),
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 90% 60% at 50% 100%,
+            rgba(0, 0, 0, 0.35),
+            transparent 70%
+          ),
+          var(--stripes);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2%;
+        overflow: hidden;
+      }
+      .panel .frame {
+        z-index: 1;
+      }
+      .panel::after {
+        /* curtain light streak */
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.25),
+          transparent 18%,
+          transparent 82%,
+          rgba(0, 0, 0, 0.25)
+        );
+      }
+      .doves {
+        position: relative;
+        z-index: 1;
+        width: min(46%, 170px);
+        height: auto;
+        margin-top: 22px;
+        filter: drop-shadow(0 0 14px rgba(255, 220, 150, 0.45));
+      }
+      /* fills the space between doves and the garland; padding-bottom (% of panel width) reserves the garland's height */
+      .hero-center {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        padding-bottom: 30%;
+      }
+      .names {
+        font-family: "Aref Ruqaa", serif;
+        font-weight: 700;
+        color: #fff;
+        font-size: clamp(46px, 15vw, 66px);
+        line-height: 1.15;
+        text-align: center;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      }
+      .names .amp {
+        display: block;
+        font-family: "Amiri", serif;
+        font-size: 0.42em;
+        font-weight: 400;
+        color: var(--gold-2);
+        line-height: 1.2;
+        margin: 14px 0;
+      }
+      .hero-date {
+        font-size: 14px;
+        color: var(--cream);
+        opacity: 0.9;
+        margin-top: 8px;
+        letter-spacing: 0.2px;
+        text-align: center;
+        padding: 0 10px;
+      }
+      .hero-venue {
+        margin-top: 4px;
+        color: var(--gold-2);
+      }
+      /* rose garland along the bottom; wider than the panel and sunk below its edge so the panel clips it */
+      .bouquet {
+        position: absolute;
+        left: -8%;
+        bottom: -4%;
+        width: 116%;
+        height: auto;
+        z-index: 2;
+        pointer-events: none;
+        filter: drop-shadow(0 -6px 14px rgba(0, 0, 0, 0.35))
+          drop-shadow(0 0 22px rgba(255, 245, 225, 0.1));
+      }
 
-  /* ================= HERO (arched card) ================= */
-  .hero{
-    position:relative;height:100svh;min-height:600px;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='124' viewBox='0 0 120 124'%3E%3Cdefs%3E%3Cg id='s' stroke='%231c3529' stroke-opacity='.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg fill='none' stroke-width='.9'%3E%3Cpath d='M20 70C18 56 17 44 21 33C24 25 29 18 33 12'/%3E%3Cpath d='M21 36C17 30 12 26 7 24'/%3E%3C/g%3E%3Cg fill='%231c3529' fill-opacity='.55' stroke-width='.7'%3E%3Cpath d='M19 54C14 52 10 47 9 41C14 42 18 47 19 54Z'/%3E%3Cpath d='M21 45C26 44 30 40 31 34C26 35 22 39 21 45Z'/%3E%3Cpath d='M26 23C30 23 33 21 35 18C31 18 28 20 26 23Z'/%3E%3Cpath d='M33 12C29 11 28 6 30 2L32 4.5L34 1L35.5 4.5L38 2.5C38.5 7 37 11 33 12Z'/%3E%3Cpath d='M7 24C4 22 3 18 4 14L6 16.5L7 13L8.5 16L10.5 14.5C11 19 10 22.5 7 24Z'/%3E%3C/g%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23s' transform='translate(8 6)'/%3E%3Cuse href='%23s' transform='translate(108 46) scale(-1 1)'/%3E%3Cg fill='%231c3529' fill-opacity='.8'%3E%3Ccircle cx='90' cy='18' r='1.2'/%3E%3Ccircle cx='30' cy='104' r='1.2'/%3E%3C/g%3E%3C/svg%3E"),
-      #ffffff;
-    overflow:hidden;
-  }
-  .panel{
-    position:absolute;left:7%;right:7%;top:3.5%;bottom:3.5%;
-    --n:46px;
-    background:
-      radial-gradient(ellipse 70% 40% at 50% 10%,rgba(255,240,200,.22),transparent 70%),
-      radial-gradient(ellipse 90% 60% at 50% 100%,rgba(0,0,0,.35),transparent 70%),
-      var(--stripes);
-    display:flex;flex-direction:column;align-items:center;
-    padding-top:2%;
-    overflow:hidden;
-  }
-  .panel .frame{z-index:1}
-  .panel::after{ /* curtain light streak */
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(90deg,rgba(0,0,0,.25),transparent 18%,transparent 82%,rgba(0,0,0,.25));
-  }
-  .doves{position:relative;z-index:1;width:min(46%,170px);height:auto;margin-top:22px;filter:drop-shadow(0 0 14px rgba(255,220,150,.45))}
-  /* fills the space between doves and the garland; padding-bottom (% of panel width) reserves the garland's height */
-  .hero-center{
-    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    position:relative;z-index:1;width:100%;padding-bottom:30%;
-  }
-  .names{
-    font-family:'Aref Ruqaa',serif;font-weight:700;color:#fff;
-    font-size:clamp(46px,15vw,66px);line-height:1.15;text-align:center;
-    text-shadow:0 4px 18px rgba(0,0,0,.35);
-  }
-  .names .amp{display:block;font-family:'Amiri',serif;font-size:.42em;font-weight:400;color:var(--gold-2);line-height:1.2;margin:14px 0}
-  .hero-date{font-size:14px;color:var(--cream);opacity:.9;margin-top:8px;letter-spacing:.2px;text-align:center;padding:0 10px}
-  .hero-venue{margin-top:4px;color:var(--gold-2)}
-  /* rose garland along the bottom; wider than the panel and sunk below its edge so the panel clips it */
-  .bouquet{position:absolute;left:-8%;bottom:-4%;width:116%;height:auto;z-index:2;pointer-events:none;
-    filter:drop-shadow(0 -6px 14px rgba(0,0,0,.35)) drop-shadow(0 0 22px rgba(255,245,225,.10))}
+      /* mobile: the panel fills the whole screen; only its arch and notched corners show the pattern */
+      @media (max-width: 600px) {
+        .hero {
+          min-height: 0;
+        }
+        .hero .wrap {
+          max-width: none;
+        }
+        .panel {
+          inset: 0;
+          --n: 34px;
+          --a: 140px;
+          padding-top: max(14px, env(safe-area-inset-top));
+        }
+        .panel .frame {
+          --g: 10px;
+        }
+        /* the fixed nav covers the screen bottom here, so lift the garland just enough to clear it */
+        .bouquet {
+          bottom: 34px;
+        }
+        .hero-center {
+          padding-bottom: calc(30% + 34px);
+        }
+      }
 
-  /* mobile: the panel fills the whole screen; only its arch and notched corners show the pattern */
-  @media (max-width:600px){
-    .hero{min-height:0}
-    .hero .wrap{max-width:none}
-    .panel{inset:0;--n:34px;--a:140px;padding-top:max(14px,env(safe-area-inset-top))}
-    .panel .frame{--g:10px}
-    /* the fixed nav covers the screen bottom here, so lift the garland just enough to clear it */
-    .bouquet{bottom:34px}
-    .hero-center{padding-bottom:calc(30% + 34px)}
-  }
+      /* hero entrance (after opening) */
+      .hero .doves,
+      .hero .names,
+      .hero .hero-date,
+      .hero .bouquet {
+        opacity: 0;
+      }
+      body.opened .doves {
+        animation: fadeUp 1.4s 0.2s ease both;
+      }
+      body.opened .names {
+        animation: fadeUp 1.2s 0.7s ease both;
+      }
+      body.opened .hero-date {
+        animation: fadeUp 1.2s 1s ease both;
+      }
+      body.opened .bouquet {
+        animation: rise 1.4s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
 
-  /* hero entrance (after opening) */
-  .hero .doves,.hero .names,.hero .hero-date,.hero .bouquet{opacity:0}
-  body.opened .doves{animation:fadeUp 1.4s .2s ease both}
-  body.opened .names{animation:fadeUp 1.2s .7s ease both}
-  body.opened .hero-date{animation:fadeUp 1.2s 1s ease both}
-  body.opened .bouquet{animation:rise 1.4s .4s cubic-bezier(.2,.8,.2,1) both}
+      /* ================= INTRO overlay ================= */
+      /* two frosted-glass panels that slide apart like a curtain */
+      #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: visibility 0s 2.1s;
+      }
+      #intro.gone {
+        visibility: hidden;
+      }
+      .curtain {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: var(--stripes);
+        opacity: 0.82;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 235, 150, 0.15);
+        transition: transform 2s cubic-bezier(0.7, 0, 0.3, 1);
+        will-change: transform;
+      }
+      .curtain.l {
+        left: 0;
+        border-right-color: rgba(255, 235, 150, 0.35);
+        box-shadow:
+          5px 0 25px rgba(218, 165, 32, 0.08),
+          inset -5px 0 15px rgba(255, 235, 150, 0.05);
+      }
+      .curtain.r {
+        right: 0;
+        border-left-color: rgba(255, 235, 150, 0.35);
+        box-shadow:
+          -5px 0 25px rgba(218, 165, 32, 0.08),
+          inset 5px 0 15px rgba(255, 235, 150, 0.05);
+      }
+      #intro.gone .curtain.l {
+        transform: translateX(-100%);
+      }
+      #intro.gone .curtain.r {
+        transform: translateX(100%);
+      }
+      .open-btn {
+        position: relative;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        padding: 0;
+        background: #fcfaf6;
+        border: 1px solid rgba(140, 136, 119, 0.2);
+        cursor: pointer;
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.08),
+          inset 0 0 15px rgba(140, 136, 119, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          transform 0.9s ease,
+          opacity 0.9s ease;
+      }
+      .open-btn .seal {
+        width: 84%;
+        height: 84%;
+        border-radius: 50%;
+        border: 1.5px solid var(--green);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: sealPulse 2.6s ease-in-out infinite;
+      }
+      .open-btn .logo {
+        width: 76%;
+        height: auto;
+        display: block;
+      }
+      @keyframes sealPulse {
+        50% {
+          transform: scale(1.05);
+        }
+      }
+      #intro.gone .open-btn {
+        transform: scale(1.5);
+        opacity: 0;
+      }
 
-  /* ================= INTRO overlay ================= */
-  /* two frosted-glass panels that slide apart like a curtain */
-  #intro{
-    position:fixed;inset:0;z-index:50;overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-    transition:visibility 0s 2.1s;
-  }
-  #intro.gone{visibility:hidden}
-  .curtain{
-    position:absolute;top:0;width:50%;height:100%;
-    background:var(--stripes);opacity:.82;
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    border:1px solid rgba(255,235,150,.15);
-    transition:transform 2s cubic-bezier(.7,0,.3,1);
-    will-change:transform;
-  }
-  .curtain.l{left:0;border-right-color:rgba(255,235,150,.35);box-shadow:5px 0 25px rgba(218,165,32,.08),inset -5px 0 15px rgba(255,235,150,.05)}
-  .curtain.r{right:0;border-left-color:rgba(255,235,150,.35);box-shadow:-5px 0 25px rgba(218,165,32,.08),inset 5px 0 15px rgba(255,235,150,.05)}
-  #intro.gone .curtain.l{transform:translateX(-100%)}
-  #intro.gone .curtain.r{transform:translateX(100%)}
-  .open-btn{
-    position:relative;z-index:1;width:150px;height:150px;border-radius:50%;padding:0;
-    background:#fcfaf6;border:1px solid rgba(140,136,119,.2);cursor:pointer;
-    box-shadow:0 10px 30px rgba(0,0,0,.08),inset 0 0 15px rgba(140,136,119,.05);
-    display:flex;align-items:center;justify-content:center;
-    transition:transform .9s ease,opacity .9s ease;
-  }
-  .open-btn .seal{
-    width:84%;height:84%;border-radius:50%;border:1.5px solid var(--green);pointer-events:none;
-    display:flex;align-items:center;justify-content:center;animation:sealPulse 2.6s ease-in-out infinite;
-  }
-  .open-btn .logo{
-    width:76%;height:auto;display:block;
-  }
-  @keyframes sealPulse{50%{transform:scale(1.05)}}
-  #intro.gone .open-btn{transform:scale(1.5);opacity:0}
+      /* ================= SECTIONS ================= */
+      main {
+        padding: 10px 12px 120px;
+      }
+      /* hidden behind the intro until opened: skip its layout, paint and looping animations */
+      body:not(.opened) main {
+        content-visibility: hidden;
+      }
+      section {
+        padding: 26px 0;
+        text-align: center;
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.025)
+        );
+        border: 1px solid var(--glass-line);
+        border-radius: var(--r-lg);
+        padding: 38px 24px;
+        box-shadow:
+          0 20px 40px -25px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(34px);
+        transition:
+          opacity 1s ease,
+          transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
 
-  /* ================= SECTIONS ================= */
-  main{padding:10px 12px 120px}
-  /* hidden behind the intro until opened: skip its layout, paint and looping animations */
-  body:not(.opened) main{content-visibility:hidden}
-  section{padding:26px 0;text-align:center}
-  .card{
-    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
-    border:1px solid var(--glass-line);
-    border-radius:var(--r-lg);
-    padding:38px 24px;
-    box-shadow:0 20px 40px -25px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08);
-    backdrop-filter:blur(4px);
-  }
-  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+      .verse {
+        font-family: "Aref Ruqaa", serif;
+        font-weight: 700;
+        font-size: clamp(28px, 8.5vw, 38px);
+        line-height: 1.6;
+        background: linear-gradient(
+          120deg,
+          var(--gold-dark),
+          var(--gold-2) 40%,
+          var(--gold) 60%,
+          var(--gold-dark)
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: shine 7s linear infinite;
+        margin-bottom: 10px;
+      }
+      .text {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 2.1;
+      }
+      .text.sm {
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .sub {
+        margin: -6px 0 18px;
+      }
+      .text strong {
+        color: var(--cream);
+        font-weight: 500;
+      }
+      /* rings-on-blossoms crest that opens the invitation card */
+      .crest {
+        display: block;
+        width: min(44%, 160px);
+        height: auto;
+        margin: -6px auto 6px;
+        filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35))
+          drop-shadow(0 0 24px rgba(255, 225, 170, 0.12));
+      }
+      .reveal.in .crest {
+        animation: crestIn 1.4s 0.15s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      @keyframes crestIn {
+        from {
+          opacity: 0;
+          transform: translateY(16px) scale(0.92);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .families {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 22px 0 12px;
+      }
+      .families div {
+        padding: 10px 6px;
+      }
+      .families div + div {
+        border-right: 1px solid var(--glass-line);
+      }
+      .families span {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      .families b {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--cream);
+      }
 
-  .verse{
-    font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(28px,8.5vw,38px);line-height:1.6;
-    background:linear-gradient(120deg,var(--gold-dark),var(--gold-2) 40%,var(--gold) 60%,var(--gold-dark));
-    background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:shine 7s linear infinite;
-    margin-bottom:10px;
-  }
-  .text{font-size:16px;color:var(--muted);line-height:2.1}
-  .text.sm{font-size:13px;line-height:1.9}
-  .sub{margin:-6px 0 18px}
-  .text strong{color:var(--cream);font-weight:500}
-  /* rings-on-blossoms crest that opens the invitation card */
-  .crest{display:block;width:min(44%,160px);height:auto;margin:-6px auto 6px;
-    filter:drop-shadow(0 10px 18px rgba(0,0,0,.35)) drop-shadow(0 0 24px rgba(255,225,170,.12))}
-  .reveal.in .crest{animation:crestIn 1.4s .15s cubic-bezier(.2,.8,.2,1) both}
-  @keyframes crestIn{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:none}}
-  .families{display:grid;grid-template-columns:1fr 1fr;margin:22px 0 12px}
-  .families div{padding:10px 6px}
-  .families div+div{border-right:1px solid var(--glass-line)}
-  .families span{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
-  .families b{font-size:17px;font-weight:700;color:var(--cream)}
+      .names-sm {
+        font-family: "Aref Ruqaa", serif;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 1.6;
+        color: #fff;
+        margin: 4px 0;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      }
+      .names-sm .amp {
+        font-family: "Amiri", serif;
+        color: var(--gold-2);
+        font-size: 0.6em;
+        margin: 0 10px;
+        font-weight: 400;
+      }
+      .label {
+        font-size: 13px;
+        color: var(--gold);
+        font-weight: 700;
+        margin-top: 14px;
+      }
+      .venue {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--cream);
+      }
 
-  .names-sm{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:36px;line-height:1.6;color:#fff;margin:4px 0;text-shadow:0 4px 18px rgba(0,0,0,.35)}
-  .names-sm .amp{font-family:'Amiri',serif;color:var(--gold-2);font-size:.6em;margin:0 10px;font-weight:400}
-  .label{font-size:13px;color:var(--gold);font-weight:700;margin-top:14px}
-  .venue{font-size:17px;font-weight:700;color:var(--cream)}
+      .save-date {
+        margin-top: 22px;
+      }
 
-  .save-date{margin-top:22px}
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 500;
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid var(--glass-line);
+        color: var(--cream);
+        transition: 0.25s;
+      }
+      .pill:hover {
+        border-color: var(--gold);
+        color: var(--gold-2);
+      }
+      .pill.gold {
+        background: var(--gold-grad);
+        color: #2a210f;
+        border-color: transparent;
+        font-weight: 700;
+      }
+      .pill.gold:hover {
+        color: #2a210f;
+        filter: brightness(1.06);
+      }
 
-  .pill{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:10px 20px;border-radius:999px;font-size:14px;font-weight:500;
-    background:rgba(0,0,0,.25);border:1px solid var(--glass-line);color:var(--cream);
-    transition:.25s;
-  }
-  .pill:hover{border-color:var(--gold);color:var(--gold-2)}
-  .pill.gold{background:var(--gold-grad);color:#2a210f;border-color:transparent;font-weight:700}
-  .pill.gold:hover{color:#2a210f;filter:brightness(1.06)}
+      /* section headings: same calligraphy + gold as the verse and footer */
+      h2 {
+        font-family: "Aref Ruqaa", serif;
+        font-size: 27px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: var(--gold-2);
+        margin-bottom: 20px;
+      }
+      h2::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 1px;
+        margin: 10px auto 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
 
-  /* section headings: same calligraphy + gold as the verse and footer */
-  h2{font-family:'Aref Ruqaa',serif;font-size:27px;font-weight:700;line-height:1.5;color:var(--gold-2);margin-bottom:20px}
-  h2::after{content:"";display:block;width:56px;height:1px;margin:10px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+      /* countdown */
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 9px;
+      }
+      .cd {
+        border: 1px solid var(--glass-line);
+        border-radius: var(--r-sm);
+        padding: 12px 2px 8px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+      .cd b {
+        display: block;
+        font-size: 28px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        font-variant-numeric: tabular-nums;
+      }
+      .cd span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .done-msg {
+        font-family: "Aref Ruqaa", serif;
+        font-size: 28px;
+        color: var(--gold-2);
+      }
 
-  /* countdown */
-  .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-  .cd{
-    border:1px solid var(--glass-line);border-radius:var(--r-sm);padding:12px 2px 8px;
-    background:rgba(0,0,0,.18);
-  }
-  .cd b{display:block;font-size:28px;font-weight:800;color:#fff;line-height:1.2;font-variant-numeric:tabular-nums}
-  .cd span{font-size:12px;color:var(--muted)}
-  .done-msg{font-family:'Aref Ruqaa',serif;font-size:28px;color:var(--gold-2)}
+      /* timeline */
+      .timeline {
+        position: relative;
+        padding: 10px 0 4px;
+      }
+      .tl-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.18);
+        transform: translateX(-50%);
+      }
+      .tl-fill {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 2px;
+        height: 0;
+        background: linear-gradient(var(--gold-2), var(--gold));
+        transform: translateX(-50%);
+        transition: height 0.15s linear;
+      }
+      .tl-dot {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff8e6;
+        box-shadow:
+          0 0 0 4px rgba(214, 178, 106, 0.25),
+          0 0 18px 6px rgba(240, 215, 154, 0.65),
+          0 0 40px 10px rgba(240, 215, 154, 0.25);
+        transition: top 0.15s linear;
+      }
+      /* RTL: odd items sit on the right half, even items on the left half */
+      .tl-item {
+        position: relative;
+        width: 50%;
+        padding: 6px 22px 26px;
+        text-align: left;
+        opacity: 0.35;
+        transition: opacity 0.5s;
+      }
+      .tl-item:nth-child(even) {
+        margin-right: 50%;
+        text-align: right;
+      }
+      .tl-item.on {
+        opacity: 1;
+      }
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: -5px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--green);
+        border: 1.5px solid var(--gold);
+      }
+      .tl-item:nth-child(even)::before {
+        left: auto;
+        right: -5px;
+      }
+      .tl-item time {
+        display: block;
+        font-size: 13px;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .tl-item p {
+        font-size: 15px;
+        color: var(--cream);
+      }
 
-  /* timeline */
-  .timeline{position:relative;padding:10px 0 4px}
-  .tl-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.18);transform:translateX(-50%)}
-  .tl-fill{position:absolute;left:50%;top:0;width:2px;height:0;background:linear-gradient(var(--gold-2),var(--gold));transform:translateX(-50%);transition:height .15s linear}
-  .tl-dot{
-    position:absolute;left:50%;top:0;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);
-    background:#fff8e6;box-shadow:0 0 0 4px rgba(214,178,106,.25),0 0 18px 6px rgba(240,215,154,.65),0 0 40px 10px rgba(240,215,154,.25);
-    transition:top .15s linear;
-  }
-  /* RTL: odd items sit on the right half, even items on the left half */
-  .tl-item{position:relative;width:50%;padding:6px 22px 26px;text-align:left;opacity:.35;transition:opacity .5s}
-  .tl-item:nth-child(even){margin-right:50%;text-align:right}
-  .tl-item.on{opacity:1}
-  .tl-item::before{
-    content:"";position:absolute;top:14px;left:-5px;width:9px;height:9px;border-radius:50%;
-    background:var(--green);border:1.5px solid var(--gold);
-  }
-  .tl-item:nth-child(even)::before{left:auto;right:-5px}
-  .tl-item time{display:block;font-size:13px;color:var(--gold);font-weight:700}
-  .tl-item p{font-size:15px;color:var(--cream)}
+      /* venue */
+      .map-box {
+        position: relative;
+        height: 340px;
+        margin: 16px 0 0;
+        border-radius: var(--r-md);
+        overflow: hidden;
+        background: #efe6d3;
+        box-shadow: 0 22px 40px -20px rgba(0, 0, 0, 0.65);
+        isolation: isolate;
+      }
+      /* iframe pushed up to hide Google's place card; its center (the venue) lands at 50% - 35px */
+      .map {
+        position: absolute;
+        left: 0;
+        top: -70px;
+        width: 100%;
+        height: calc(100% + 70px);
+        border: 0;
+        filter: sepia(0.45) saturate(0.75) hue-rotate(-8deg) brightness(1.04)
+          contrast(0.95);
+      }
+      .map-pin {
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 35px);
+        width: 46px;
+        height: 58px;
+        z-index: 2;
+        pointer-events: none;
+        transform: translate(-50%, -100%);
+        filter: drop-shadow(0 6px 8px rgba(60, 40, 10, 0.4));
+      }
+      .reveal.in .map-pin {
+        animation: pinDrop 0.9s 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) both;
+      }
+      @keyframes pinDrop {
+        from {
+          transform: translate(-50%, -260%);
+          opacity: 0;
+        }
+        to {
+          transform: translate(-50%, -100%);
+          opacity: 1;
+        }
+      }
+      .map-gmaps {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--gold-dark);
+        font-size: 13px;
+        font-weight: 700;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      }
+      .map-venue {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background: var(--gold-grad);
+        color: #2a210f;
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 10px 22px -8px rgba(80, 55, 15, 0.7);
+      }
 
-  /* venue */
-  .map-box{
-    position:relative;height:340px;margin:16px 0 0;border-radius:var(--r-md);overflow:hidden;
-    background:#efe6d3;box-shadow:0 22px 40px -20px rgba(0,0,0,.65);isolation:isolate;
-  }
-  /* iframe pushed up to hide Google's place card; its center (the venue) lands at 50% - 35px */
-  .map{
-    position:absolute;left:0;top:-70px;width:100%;height:calc(100% + 70px);border:0;
-    filter:sepia(.45) saturate(.75) hue-rotate(-8deg) brightness(1.04) contrast(.95);
-  }
-  .map-pin{
-    position:absolute;left:50%;top:calc(50% - 35px);width:46px;height:58px;z-index:2;pointer-events:none;
-    transform:translate(-50%,-100%);filter:drop-shadow(0 6px 8px rgba(60,40,10,.4));
-  }
-  .reveal.in .map-pin{animation:pinDrop .9s .5s cubic-bezier(.3,1.5,.5,1) both}
-  @keyframes pinDrop{from{transform:translate(-50%,-260%);opacity:0}to{transform:translate(-50%,-100%);opacity:1}}
-  .map-gmaps{
-    position:absolute;top:12px;left:12px;z-index:2;
-    display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;
-    background:#fff;color:var(--gold-dark);font-size:13px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.18);
-  }
-  .map-venue{
-    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;
-    display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;
-    background:var(--gold-grad);color:#2a210f;font-size:14px;font-weight:700;
-    box-shadow:0 10px 22px -8px rgba(80,55,15,.7);
-  }
+      /* rsvp */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-align: right;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: var(--r-sm);
+        border: 1px solid var(--glass-line);
+        background: var(--field-bg);
+        font-family: inherit;
+        font-size: 16px;
+        color: var(--cream);
+        outline: none;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: rgba(241, 236, 225, 0.4);
+      }
+      select option {
+        color: #222;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--gold);
+      }
+      .choice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .choice input {
+        display: none;
+      }
+      .choice label {
+        border: 1px solid var(--glass-line);
+        border-radius: var(--r-sm);
+        padding: 11px;
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        color: var(--cream);
+        background: var(--field-bg);
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .choice input:checked + label {
+        border-color: var(--gold);
+        background: rgba(214, 178, 106, 0.15);
+        color: var(--gold-2);
+        font-weight: 700;
+      }
+      form .pill {
+        justify-content: center;
+        padding: 13px;
+        font-size: 15px;
+        margin-top: 4px;
+      }
+      .count {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+      }
+      .count button {
+        aspect-ratio: 1;
+        max-height: 52px;
+        border-radius: var(--r-sm);
+        border: 1px solid var(--glass-line);
+        background: var(--field-bg);
+        color: var(--cream);
+        font-family: inherit;
+        font-size: 17px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .count button:hover {
+        border-color: rgba(214, 178, 106, 0.5);
+      }
+      .count button.on {
+        border-color: var(--gold);
+        background: linear-gradient(
+          135deg,
+          rgba(214, 178, 106, 0.28),
+          rgba(214, 178, 106, 0.1)
+        );
+        color: var(--gold-2);
+        font-weight: 700;
+        box-shadow: 0 0 0 3px rgba(214, 178, 106, 0.12);
+        transform: translateY(-1px);
+      }
 
-  /* rsvp */
-  form{display:flex;flex-direction:column;gap:14px;text-align:right}
-  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-  input,select,textarea{
-    width:100%;padding:12px 14px;border-radius:var(--r-sm);border:1px solid var(--glass-line);
-    background:var(--field-bg);font-family:inherit;font-size:16px;color:var(--cream);outline:none;
-  }
-  input::placeholder,textarea::placeholder{color:rgba(241,236,225,.4)}
-  select option{color:#222}
-  input:focus,select:focus,textarea:focus{border-color:var(--gold)}
-  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .choice input{display:none}
-  .choice label{
-    border:1px solid var(--glass-line);border-radius:var(--r-sm);padding:11px;margin:0;text-align:center;font-size:14px;color:var(--cream);
-    background:var(--field-bg);cursor:pointer;transition:.2s;
-  }
-  .choice input:checked+label{border-color:var(--gold);background:rgba(214,178,106,.15);color:var(--gold-2);font-weight:700}
-  form .pill{justify-content:center;padding:13px;font-size:15px;margin-top:4px}
-  .count{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-  .count button{
-    aspect-ratio:1;max-height:52px;border-radius:var(--r-sm);border:1px solid var(--glass-line);
-    background:var(--field-bg);color:var(--cream);font-family:inherit;font-size:17px;cursor:pointer;
-    transition:.2s;
-  }
-  .count button:hover{border-color:rgba(214,178,106,.5)}
-  .count button.on{
-    border-color:var(--gold);background:linear-gradient(135deg,rgba(214,178,106,.28),rgba(214,178,106,.1));
-    color:var(--gold-2);font-weight:700;box-shadow:0 0 0 3px rgba(214,178,106,.12);transform:translateY(-1px);
-  }
+      /* blessing */
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .chip {
+        padding: 7px 13px;
+        border-radius: 999px;
+        font-size: 13px;
+        line-height: 1.5;
+        border: 1px solid var(--glass-line);
+        background: var(--field-bg);
+        color: var(--cream);
+        transition: 0.2s;
+      }
+      .chip:hover,
+      .chip.on {
+        border-color: var(--gold);
+        background: rgba(214, 178, 106, 0.15);
+        color: var(--gold-2);
+      }
+      .wall {
+        margin-top: 22px;
+        text-align: right;
+      }
+      .wall-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: var(--gold-2);
+        font-weight: 700;
+      }
+      .wall-head small {
+        color: var(--muted);
+        font-weight: 400;
+      }
+      .wall-list {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .wall-list::-webkit-scrollbar {
+        display: none;
+      }
+      .wish {
+        flex: 0 0 82%;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--glass-line);
+        border-radius: var(--r-sm);
+        background: rgba(0, 0, 0, 0.18);
+        padding: 12px 14px;
+        animation: fadeUp 0.6s ease both;
+      }
+      .wall-list .wall-empty {
+        flex: 1;
+      }
+      .wish p {
+        font-family: "Amiri", serif;
+        font-size: 16px;
+        line-height: 1.9;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .wish .by {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .wish .by b {
+        color: var(--gold);
+      }
+      .wall-empty {
+        text-align: center;
+        font-size: 13px;
+        color: var(--muted);
+        padding: 10px;
+      }
+      .heart {
+        position: fixed;
+        z-index: 55;
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
+        animation: heartUp 1.8s ease-out forwards;
+        filter: drop-shadow(0 0 6px rgba(240, 215, 154, 0.6));
+      }
+      .heart svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      @keyframes heartUp {
+        from {
+          opacity: 1;
+          transform: translate(0, 0) scale(0.6);
+        }
+        to {
+          opacity: 0;
+          transform: translate(var(--dx), -260px) scale(1.3);
+        }
+      }
 
-  /* blessing */
-  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px}
-  .chip{
-    padding:7px 13px;border-radius:999px;font-size:13px;line-height:1.5;
-    border:1px solid var(--glass-line);background:var(--field-bg);color:var(--cream);transition:.2s;
-  }
-  .chip:hover,.chip.on{border-color:var(--gold);background:rgba(214,178,106,.15);color:var(--gold-2)}
-  .wall{margin-top:22px;text-align:right}
-  .wall-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-size:14px;color:var(--gold-2);font-weight:700}
-  .wall-head small{color:var(--muted);font-weight:400}
-  .wall-list{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
-  .wall-list::-webkit-scrollbar{display:none}
-  .wish{flex:0 0 82%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--glass-line);border-radius:var(--r-sm);background:rgba(0,0,0,.18);padding:12px 14px;animation:fadeUp .6s ease both}
-  .wall-list .wall-empty{flex:1}
-  .wish p{font-family:'Amiri',serif;font-size:16px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
-  .wish .by{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font-size:12px;color:var(--muted)}
-  .wish .by b{color:var(--gold)}
-  .wall-empty{text-align:center;font-size:13px;color:var(--muted);padding:10px}
-  .heart{position:fixed;z-index:55;pointer-events:none;width:20px;height:20px;animation:heartUp 1.8s ease-out forwards;filter:drop-shadow(0 0 6px rgba(240,215,154,.6))}
-  .heart svg{display:block;width:100%;height:100%}
-  @keyframes heartUp{from{opacity:1;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(var(--dx),-260px) scale(1.3)}}
+      /* footer: notched card echoing the hero panel */
+      footer {
+        text-align: center;
+        padding: 26px 0 10px;
+      }
+      .foot {
+        position: relative;
+        padding: 46px 28px 34px;
+        --n: 30px;
+        background:
+          radial-gradient(
+            ellipse 70% 45% at 50% 0,
+            rgba(240, 215, 154, 0.16),
+            transparent 70%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.02)
+          );
+      }
+      .foot .frame {
+        --g: 9px;
+      }
+      .foot-thanks {
+        font-family: "Aref Ruqaa", serif;
+        font-size: 24px;
+        color: var(--gold-2);
+        line-height: 1.6;
+      }
+      .foot .names-sm {
+        font-size: 40px;
+        margin: 2px 0 0;
+      }
+      .foot-date {
+        display: inline-block;
+        direction: ltr;
+        margin-top: 6px;
+        padding: 4px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: var(--gold);
+        border-top: 1px solid rgba(214, 178, 106, 0.3);
+        border-bottom: 1px solid rgba(214, 178, 106, 0.3);
+      }
+      .foot-dua {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 2;
+        max-width: 300px;
+        margin: 0 auto 18px;
+      }
+      .foot-note {
+        margin-top: 22px;
+        font-size: 14px;
+        color: rgba(241, 236, 225, 0.6);
+        letter-spacing: 0.3px;
+      }
 
-  /* footer: notched card echoing the hero panel */
-  footer{text-align:center;padding:26px 0 10px}
-  .foot{
-    position:relative;padding:46px 28px 34px;--n:30px;
-    background:
-      radial-gradient(ellipse 70% 45% at 50% 0,rgba(240,215,154,.16),transparent 70%),
-      linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  }
-  .foot .frame{--g:9px}
-  .foot-thanks{font-family:'Aref Ruqaa',serif;font-size:24px;color:var(--gold-2);line-height:1.6}
-  .foot .names-sm{font-size:40px;margin:2px 0 0}
-  .foot-date{
-    display:inline-block;direction:ltr;margin-top:6px;padding:4px 16px;
-    font-size:14px;font-weight:700;letter-spacing:3px;color:var(--gold);
-    border-top:1px solid rgba(214,178,106,.3);border-bottom:1px solid rgba(214,178,106,.3);
-  }
-  .foot-dua{font-size:14px;color:var(--muted);line-height:2;max-width:300px;margin:0 auto 18px}
-  .foot-note{margin-top:22px;font-size:14px;color:rgba(241,236,225,.6);letter-spacing:.3px}
+      /* ================= BOTTOM NAV ================= */
+      .nav {
+        position: fixed;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%, 140%);
+        width: min(460px, calc(100% - 20px));
+        z-index: 40;
+        background: rgba(246, 245, 240, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 22px;
+        box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.45);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: end;
+        padding: 8px 4px 6px;
+        transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s;
+      }
+      body.opened .nav {
+        transform: translate(-50%, 0);
+      }
+      .nav a,
+      .nav button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font-size: 11px;
+        color: #2c3b33;
+        font-weight: 500;
+      }
+      .nav svg {
+        width: 21px;
+        height: 21px;
+      }
+      .nav .center {
+        position: relative;
+      }
+      .nav .center .g {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        margin-top: -30px;
+        background: radial-gradient(
+          circle at 35% 30%,
+          var(--gold-2),
+          var(--gold) 55%,
+          var(--gold-dark)
+        );
+        box-shadow:
+          0 0 0 5px rgba(246, 245, 240, 0.95),
+          0 8px 18px -4px rgba(120, 90, 30, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .nav .center .g svg {
+        width: 26px;
+        height: 26px;
+      }
+      .nav button.playing .note {
+        animation: bob 0.8s ease-in-out infinite alternate;
+      }
 
-  /* ================= BOTTOM NAV ================= */
-  .nav{
-    position:fixed;left:50%;bottom:10px;transform:translate(-50%,140%);
-    width:min(460px,calc(100% - 20px));z-index:40;
-    background:rgba(246,245,240,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border-radius:22px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);
-    display:grid;grid-template-columns:repeat(5,1fr);align-items:end;
-    padding:8px 4px 6px;
-    transition:transform .9s cubic-bezier(.2,.8,.2,1) 1.2s;
-  }
-  body.opened .nav{transform:translate(-50%,0)}
-  .nav a,.nav button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:#2c3b33;font-weight:500}
-  .nav svg{width:21px;height:21px}
-  .nav .center{position:relative}
-  .nav .center .g{
-    width:54px;height:54px;border-radius:50%;margin-top:-30px;
-    background:radial-gradient(circle at 35% 30%,var(--gold-2),var(--gold) 55%,var(--gold-dark));
-    box-shadow:0 0 0 5px rgba(246,245,240,.95),0 8px 18px -4px rgba(120,90,30,.6);
-    display:flex;align-items:center;justify-content:center;color:#fff;
-  }
-  .nav .center .g svg{width:26px;height:26px}
-  .nav button.playing .note{animation:bob .8s ease-in-out infinite alternate}
+      .toast {
+        position: fixed;
+        bottom: 96px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(20, 38, 29, 0.94);
+        border: 1px solid rgba(214, 178, 106, 0.4);
+        color: var(--cream);
+        padding: 9px 18px;
+        border-radius: 999px;
+        font-size: 14px;
+        box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: 0.35s;
+        z-index: 60;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%);
+      }
+      .toast svg {
+        width: 15px;
+        height: 15px;
+        flex: none;
+        color: var(--gold);
+        fill: currentColor;
+      }
 
-  .toast{
-    position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(20px);
-    display:flex;align-items:center;gap:8px;
-    background:rgba(20,38,29,.94);border:1px solid rgba(214,178,106,.4);color:var(--cream);padding:9px 18px;border-radius:999px;font-size:14px;
-    box-shadow:0 10px 24px -10px rgba(0,0,0,.6);
-    opacity:0;transition:.35s;z-index:60;pointer-events:none;white-space:nowrap;
-  }
-  .toast.show{opacity:1;transform:translateX(-50%)}
-  .toast svg{width:15px;height:15px;flex:none;color:var(--gold);fill:currentColor}
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(60px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes swingIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-60px) rotate(-4deg);
+        }
+        60% {
+          opacity: 1;
+          transform: translateY(4px) rotate(2deg);
+        }
+        80% {
+          transform: rotate(-1deg);
+        }
+        100% {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+      @keyframes bob {
+        to {
+          transform: translateY(-3px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .reveal,
+        .hero .doves,
+        .hero .names,
+        .hero .hero-date,
+        .hero .bouquet {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+    <link rel="icon" type="image/png" href="mersal-favicon.png" />
+    <link rel="apple-touch-icon" href="mersal-favicon.png" />
+    <style>
+      .mersal-credit {
+        margin: 22px auto 0;
+        font-size: 12.5px;
+        line-height: 1.8;
+        text-align: center;
+        letter-spacing: 0.2px;
+        opacity: 0.7;
+        position: relative;
+        z-index: 2;
+      }
+      .mersal-credit::before {
+        content: "";
+        display: block;
+        width: 36px;
+        height: 1px;
+        margin: 0 auto 12px;
+        background: currentColor;
+        opacity: 0.35;
+      }
+      .mersal-credit a {
+        color: inherit;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: opacity 0.2s;
+      }
+      .mersal-credit a:hover {
+        opacity: 0.6;
+      }
+      .mersal-credit b {
+        font-weight: 700;
+      }
+      .mersal-credit i {
+        font-style: normal;
+        margin: 0 6px;
+        opacity: 0.6;
+      }
+      .mersal-credit span[dir] {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        font-size: 0.92em;
+        letter-spacing: 0.4px;
+      }
+      .mersal-credit .mc-tag {
+        display: block;
+        font-size: 1.08em;
+        margin-bottom: 4px;
+        letter-spacing: 0.3px;
+      }
+      .mersal-credit a {
+        display: inline-block;
+        font-size: 0.95em;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- shared icon symbols (consistent across devices, unlike emoji) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <linearGradient id="heartGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff1c8" />
+        <stop offset=".5" stop-color="#e2bf74" />
+        <stop offset="1" stop-color="#a8823d" />
+      </linearGradient>
+      <symbol id="heartPath" viewBox="0 0 24 24">
+        <path
+          d="M12 21.2l-1.4-1.3C5.4 15.3 2 12.2 2 8.4 2 5.4 4.4 3 7.4 3c1.7 0 3.4.8 4.6 2.1C13.2 3.8 14.9 3 16.6 3 19.6 3 22 5.4 22 8.4c0 3.8-3.4 6.9-8.6 11.5L12 21.2z"
+        />
+      </symbol>
+      <symbol id="sparkPath" viewBox="0 0 24 24">
+        <path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" />
+      </symbol>
+      <symbol id="checkPath" viewBox="0 0 24 24">
+        <path
+          d="M5 12.5l4.5 4.5L19 7.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
 
-  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-  @keyframes rise{from{opacity:0;transform:translateY(60px) scale(.95)}to{opacity:1;transform:none}}
-  @keyframes swingIn{0%{opacity:0;transform:translateY(-60px) rotate(-4deg)}60%{opacity:1;transform:translateY(4px) rotate(2deg)}80%{transform:rotate(-1deg)}100%{opacity:1;transform:none}}
-  @keyframes shine{to{background-position:200% center}}
-  @keyframes bob{to{transform:translateY(-3px)}}
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important}
-    .reveal,.hero .doves,.hero .names,.hero .hero-date,.hero .bouquet{opacity:1;transform:none}
-  }
-</style>
-<link rel="icon" type="image/png" href="mersal-favicon.png">
-<link rel="apple-touch-icon" href="mersal-favicon.png">
-<style>.mersal-credit{margin:22px auto 0;font-size:12.5px;line-height:1.8;text-align:center;letter-spacing:.2px;opacity:.7;position:relative;z-index:2}.mersal-credit::before{content:"";display:block;width:36px;height:1px;margin:0 auto 12px;background:currentColor;opacity:.35}.mersal-credit a{color:inherit;text-decoration:none;white-space:nowrap;transition:opacity .2s}.mersal-credit a:hover{opacity:.6}.mersal-credit b{font-weight:700}.mersal-credit i{font-style:normal;margin:0 6px;opacity:.6}.mersal-credit span[dir]{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.92em;letter-spacing:.4px}.mersal-credit .mc-tag{display:block;font-size:1.08em;margin-bottom:4px;letter-spacing:.3px}.mersal-credit a{display:inline-block;font-size:.95em;opacity:.85}</style>
-</head>
-<body class="locked">
-
-
-<!-- shared icon symbols (consistent across devices, unlike emoji) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <linearGradient id="heartGrad" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#fff1c8"/><stop offset=".5" stop-color="#e2bf74"/><stop offset="1" stop-color="#a8823d"/>
-  </linearGradient>
-  <symbol id="heartPath" viewBox="0 0 24 24"><path d="M12 21.2l-1.4-1.3C5.4 15.3 2 12.2 2 8.4 2 5.4 4.4 3 7.4 3c1.7 0 3.4.8 4.6 2.1C13.2 3.8 14.9 3 16.6 3 19.6 3 22 5.4 22 8.4c0 3.8-3.4 6.9-8.6 11.5L12 21.2z"/></symbol>
-  <symbol id="sparkPath" viewBox="0 0 24 24"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></symbol>
-  <symbol id="checkPath" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
-
-<!-- ============ INTRO (glass curtain + OPEN circle) ============ -->
-<div id="intro">
-  <div class="curtain l"></div>
-  <div class="curtain r"></div>
-  <button class="open-btn" id="openBtn" aria-label="افتح الدعوة">
-    <span class="seal" aria-hidden="true"><img class="logo" src="images/mersal.webp" width="480" height="228" alt="" fetchpriority="high"></span>
-  </button>
-</div>
-
-<!-- ============ HERO ============ -->
-<header class="hero" id="home">
-  <div class="wrap" style="height:100%">
-    <div class="panel arched">
-      <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <!-- two doves with rings -->
-      <img class="doves" src="images/doves.png" alt="" aria-hidden="true">
-
-      <div class="hero-center">
-        <h1 class="names">
-          <span data-f="groom"></span>
-          <span class="amp">&amp;</span>
-          <span data-f="bride"></span>
-        </h1>
-        <p class="hero-date" id="heroDate"></p>
-        <p class="hero-date hero-venue" data-f="venueName"></p>
-      </div>
-
-      <img class="bouquet" src="images/roses-garland.webp" width="1003" height="284" alt="" decoding="async">
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <!-- verse + invitation -->
-  <section class="reveal">
-    <div class="card">
-      <img class="crest" src="images/rings.webp" width="322" height="225" alt="" loading="lazy" decoding="async">
-      <div class="verse">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
-      <p class="text">بكل فرحٍ وسرور، يتشرّف</p>
-      <div class="families">
-        <div><span>والد العريس</span><b data-f="groomFather"></b></div>
-        <div><span>والد العروس</span><b data-f="brideFather"></b></div>
-      </div>
-      <p class="text">بدعوتكم لمشاركتنا فرحتنا بحفل زفاف أبنائنا<br>فحضوركم يزيدنا شرفاً وسعادة</p>
-    </div>
-  </section>
-
-  <!-- countdown + save the date -->
-  <section class="reveal">
-    <div class="card">
-      <h2>العد التنازلي</h2>
-      <div class="countdown" id="countdown">
-        <div class="cd"><b id="cd-d">0</b><span>أيام</span></div>
-        <div class="cd"><b id="cd-h">0</b><span>ساعات</span></div>
-        <div class="cd"><b id="cd-m">0</b><span>دقائق</span></div>
-        <div class="cd"><b id="cd-s">0</b><span>ثواني</span></div>
-      </div>
-      <button class="pill save-date" id="calBtn">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-        حفظ الموعد
+    <!-- ============ INTRO (glass curtain + OPEN circle) ============ -->
+    <div id="intro">
+      <div class="curtain l"></div>
+      <div class="curtain r"></div>
+      <button class="open-btn" id="openBtn" aria-label="افتح الدعوة">
+        <span class="seal" aria-hidden="true"
+          ><img
+            class="logo"
+            src="images/mersal.webp"
+            width="480"
+            height="228"
+            alt=""
+            fetchpriority="high"
+        /></span>
       </button>
     </div>
-  </section>
 
-  <!-- program -->
-  <section class="reveal">
-    <div class="card">
-      <h2>برنامج المناسبة</h2>
-      <div class="timeline" id="timeline">
-        <div class="tl-line"></div>
-        <div class="tl-fill" id="tlFill"></div>
-        <div class="tl-dot" id="tlDot"></div>
-        <div id="tlItems"></div>
-      </div>
-    </div>
-  </section>
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="home">
+      <div class="wrap" style="height: 100%">
+        <div class="panel arched">
+          <div class="frame" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </div>
+          <!-- two doves with rings -->
+          <img class="doves" src="images/doves.png" alt="" aria-hidden="true" />
 
-  <!-- location -->
-  <section class="reveal" id="location">
-    <div class="card">
-      <h2>الموقع</h2>
-      <p class="venue" data-f="venueName"></p>
-      <p class="text sm" data-f="venueAddress"></p>
-      <div class="map-box">
-        <iframe class="map" id="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="الخريطة"></iframe>
-        <svg class="map-pin" viewBox="0 0 46 58" aria-hidden="true">
-          <path d="M23 56C23 56 3 36 3 22a20 20 0 0 1 40 0c0 14-20 34-20 34z" fill="#b5893a" stroke="#fff" stroke-width="2.5"/>
-          <path d="M23 31s-8.5-5-8.5-10.6A4.7 4.7 0 0 1 23 17.6a4.7 4.7 0 0 1 8.5 2.8C31.5 26 23 31 23 31z" fill="#fff"/>
-        </svg>
-        <a class="map-gmaps mapLink" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-          خرائط Google
-        </a>
-        <a class="map-venue mapLink" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          <span data-f="venueName"></span>
-        </a>
-      </div>
-    </div>
-  </section>
+          <div class="hero-center">
+            <h1 class="names">
+              <span data-f="groom"></span>
+              <span class="amp">&amp;</span>
+              <span data-f="bride"></span>
+            </h1>
+            <p class="hero-date" id="heroDate"></p>
+            <p class="hero-date hero-venue" data-f="venueName"></p>
+          </div>
 
-  <!-- RSVP -->
-  <section class="reveal" id="rsvpSec">
-    <div class="card">
-      <h2>تأكيد الحضور</h2>
-      <form id="rsvp">
-        <div>
-          <label for="gname">الاسم الكريم</label>
-          <input id="gname" required placeholder="اكتب اسمك">
+          <img
+            class="bouquet"
+            src="images/roses-garland.webp"
+            width="1003"
+            height="284"
+            alt=""
+            decoding="async"
+          />
         </div>
-        <div class="choice">
-          <input type="radio" name="att" id="yes" checked><label for="yes">سأحضر بإذن الله</label>
-          <input type="radio" name="att" id="no"><label for="no">أعتذر عن الحضور</label>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- verse + invitation -->
+      <section class="reveal">
+        <div class="card">
+          <img
+            class="crest"
+            src="images/rings.webp"
+            width="322"
+            height="225"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="verse">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+          <p class="text">بقلوبٍ يملؤها الفرح، يتشرّف</p>
+          <div class="families">
+            <div><span>والد العريس</span><b data-f="groomFather"></b></div>
+            <div><span>والد العروس</span><b data-f="brideFather"></b></div>
+          </div>
+          <p class="text">
+            بدعوتكم لحضور ليلة زفاف أبنائهما<br />فأنتم جزءٌ من فرحتنا، ولا
+            تكتمل إلا بكم
+          </p>
         </div>
-        <div id="countWrap">
-          <label for="gcount">عدد الأشخاص</label>
-          <input type="hidden" id="gcount" value="1">
-          <div class="count" role="radiogroup" aria-label="عدد الأشخاص">
-            <button type="button" class="on" aria-checked="true" role="radio">1</button>
-            <button type="button" aria-checked="false" role="radio">2</button>
-            <button type="button" aria-checked="false" role="radio">3</button>
-            <button type="button" aria-checked="false" role="radio">4</button>
-            <button type="button" aria-checked="false" role="radio">5</button>
+      </section>
+
+      <!-- countdown + save the date -->
+      <section class="reveal">
+        <div class="card">
+          <h2>يفصلنا عن الفرح</h2>
+          <div class="countdown" id="countdown">
+            <div class="cd"><b id="cd-d">0</b><span>أيام</span></div>
+            <div class="cd"><b id="cd-h">0</b><span>ساعات</span></div>
+            <div class="cd"><b id="cd-m">0</b><span>دقائق</span></div>
+            <div class="cd"><b id="cd-s">0</b><span>ثواني</span></div>
+          </div>
+          <button class="pill save-date" id="calBtn">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M16 3v4M8 3v4M3 10h18" />
+            </svg>
+            أضِف الموعد لتقويمك
+          </button>
+        </div>
+      </section>
+
+      <!-- program -->
+      <section class="reveal">
+        <div class="card">
+          <h2>تفاصيل السهرة</h2>
+          <div class="timeline" id="timeline">
+            <div class="tl-line"></div>
+            <div class="tl-fill" id="tlFill"></div>
+            <div class="tl-dot" id="tlDot"></div>
+            <div id="tlItems"></div>
           </div>
         </div>
-        <button class="pill gold" type="submit">إرسال التأكيد عبر واتساب</button>
-      </form>
-    </div>
-  </section>
+      </section>
 
-  <!-- blessing -->
-  <section class="reveal" id="blessSec">
-    <div class="card">
-      <h2>أرسل مباركة للعروسين</h2>
-      <p class="text sm sub">اختر مباركة جاهزة أو اكتب كلماتك الخاصة</p>
-      <div class="chips" id="chips"></div>
-      <form id="bless">
-        <div>
-          <label for="bname">الاسم</label>
-          <input id="bname" required placeholder="اكتب اسمك">
+      <!-- location -->
+      <section class="reveal" id="location">
+        <div class="card">
+          <h2>أين نلتقي</h2>
+          <p class="venue" data-f="venueName"></p>
+          <p class="text sm" data-f="venueAddress"></p>
+          <div class="map-box">
+            <iframe
+              class="map"
+              id="map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="الخريطة"
+            ></iframe>
+            <svg class="map-pin" viewBox="0 0 46 58" aria-hidden="true">
+              <path
+                d="M23 56C23 56 3 36 3 22a20 20 0 0 1 40 0c0 14-20 34-20 34z"
+                fill="#b5893a"
+                stroke="#fff"
+                stroke-width="2.5"
+              />
+              <path
+                d="M23 31s-8.5-5-8.5-10.6A4.7 4.7 0 0 1 23 17.6a4.7 4.7 0 0 1 8.5 2.8C31.5 26 23 31 23 31z"
+                fill="#fff"
+              />
+            </svg>
+            <a class="map-gmaps mapLink" target="_blank" rel="noopener">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
+                <path
+                  d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"
+                />
+              </svg>
+              خرائط Google
+            </a>
+            <a class="map-venue mapLink" target="_blank" rel="noopener">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <span data-f="venueName"></span>
+            </a>
+          </div>
         </div>
-        <div>
-          <label for="bmsg">المباركة</label>
-          <textarea id="bmsg" rows="4" required placeholder="اكتب مباركتك هنا..."></textarea>
-        </div>
-        <button class="pill gold" type="submit">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.5 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
-          إرسال المباركة
-        </button>
-      </form>
-      <div class="wall" id="wall" hidden>
-        <div class="wall-head">مباركات الأحبة</div>
-        <div class="wall-list" id="wallList"></div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <footer class="reveal">
-    <div class="foot notched">
-      <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <p class="foot-thanks">بوجودكم تكتمل فرحتنا</p>
-      <div class="names-sm"><span data-f="groom"></span><span class="amp">&amp;</span><span data-f="bride"></span></div>
-      <p class="foot-date" id="footDate"></p>
-      <p class="foot-dua">نسأل الله أن يبارك لهما ويبارك عليهما، ويجمع بينهما في خير</p>
-      <button class="pill" id="shareBtn">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
-        مشاركة الدعوة
+      <!-- RSVP -->
+      <section class="reveal" id="rsvpSec">
+        <div class="card">
+          <h2>هل نراكم هناك؟</h2>
+          <form id="rsvp">
+            <div>
+              <label for="gname">اسمك</label>
+              <input id="gname" required placeholder="اكتب اسمك" />
+            </div>
+            <div class="choice">
+              <input type="radio" name="att" id="yes" checked /><label for="yes"
+                >أكيد، سأكون هناك</label
+              >
+              <input type="radio" name="att" id="no" /><label for="no"
+                >للأسف لن أتمكن</label
+              >
+            </div>
+            <div id="countWrap">
+              <label for="gcount">عدد الأشخاص</label>
+              <input type="hidden" id="gcount" value="1" />
+              <div class="count" role="radiogroup" aria-label="عدد الأشخاص">
+                <button
+                  type="button"
+                  class="on"
+                  aria-checked="true"
+                  role="radio"
+                >
+                  1
+                </button>
+                <button type="button" aria-checked="false" role="radio">
+                  2
+                </button>
+                <button type="button" aria-checked="false" role="radio">
+                  3
+                </button>
+                <button type="button" aria-checked="false" role="radio">
+                  4
+                </button>
+                <button type="button" aria-checked="false" role="radio">
+                  5
+                </button>
+              </div>
+            </div>
+            <button class="pill gold" type="submit">
+              أرسل ردّك عبر واتساب
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- blessing -->
+      <section class="reveal" id="blessSec">
+        <div class="card">
+          <h2>كلمة منك تفرحنا</h2>
+          <p class="text sm sub">اختر من المباركات أو اكتبها بكلماتك</p>
+          <div class="chips" id="chips"></div>
+          <form id="bless">
+            <div>
+              <label for="bname">الاسم</label>
+              <input id="bname" required placeholder="اكتب اسمك" />
+            </div>
+            <div>
+              <label for="bmsg">المباركة</label>
+              <textarea
+                id="bmsg"
+                rows="4"
+                required
+                placeholder="اكتب مباركتك هنا..."
+              ></textarea>
+            </div>
+            <button class="pill gold" type="submit">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.5 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"
+                />
+              </svg>
+              أرسل مباركتك
+            </button>
+          </form>
+          <div class="wall" id="wall" hidden>
+            <div class="wall-head">قالوا للعروسين</div>
+            <div class="wall-list" id="wallList"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="reveal">
+        <div class="foot notched">
+          <div class="frame" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </div>
+          <p class="foot-thanks">موعدنا معكم، فلا تتأخروا علينا</p>
+          <div class="names-sm">
+            <span data-f="groom"></span><span class="amp">&amp;</span
+            ><span data-f="bride"></span>
+          </div>
+          <p class="foot-date" id="footDate"></p>
+          <p class="foot-dua">
+            نسأل الله أن يبارك لهما ويبارك عليهما، ويجمع بينهما في خير
+          </p>
+          <button class="pill" id="shareBtn">
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
+            </svg>
+            أرسل الدعوة لأحبابك
+          </button>
+          <p class="foot-note">
+            من قلوبنا، لكم كل المحبة
+            <svg class="ico-heart" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#heartPath" />
+            </svg>
+          </p>
+        </div>
+        <p class="mersal-credit">
+          <span class="mc-tag">لكل مناسبة، رسالة تستحق أن تصل</span
+          ><a
+            href="https://instagram.com/mersal.invites"
+            target="_blank"
+            rel="noopener"
+            >بواسطة <b>مرسال</b><i aria-hidden="true">·</i
+            ><span dir="ltr">@mersal.invites</span></a
+          >
+        </p>
+      </footer>
+    </main>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <nav class="nav">
+      <a id="callBtn">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path
+            d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+          />
+        </svg>
+        اتصل
+      </a>
+      <button id="musicBtn">
+        <svg
+          class="note"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+        موسيقى
       </button>
-      <p class="foot-note">مع خالص المحبة والتقدير <svg class="ico-heart" viewBox="0 0 24 24" aria-hidden="true"><use href="#heartPath"/></svg></p>
-    </div>
-    <p class="mersal-credit"><span class="mc-tag">لكل مناسبة، رسالة تستحق أن تصل</span><a href="https://instagram.com/mersal.invites" target="_blank" rel="noopener">بواسطة <b>مرسال</b><i aria-hidden="true">·</i><span dir="ltr">@mersal.invites</span></a></p>
-  </footer>
-</main>
+      <a href="#home" class="center" aria-label="الرئيسية">
+        <span class="g">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <circle cx="9" cy="14" r="5.5" />
+            <circle cx="15" cy="14" r="5.5" />
+            <path d="M13.5 4.5l1.5-2 1.5 2-1.5 2z" />
+          </svg>
+        </span>
+      </a>
+      <a href="#location">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z" />
+          <circle cx="12" cy="9" r="2.5" />
+        </svg>
+        المكان
+      </a>
+      <a href="#rsvpSec">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path
+            d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.5 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"
+          />
+        </svg>
+        ردّك
+      </a>
+    </nav>
 
-<!-- ============ BOTTOM NAV ============ -->
-<nav class="nav">
-  <a id="callBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-    اتصل
-  </a>
-  <button id="musicBtn">
-    <svg class="note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-    موسيقى
-  </button>
-  <a href="#home" class="center" aria-label="الرئيسية">
-    <span class="g">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/><path d="M13.5 4.5l1.5-2 1.5 2-1.5 2z"/></svg>
-    </span>
-  </a>
-  <a href="#location">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-    الموقع
-  </a>
-  <a href="#rsvpSec">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.5 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
-    تأكيد الحضور
-  </a>
-</nav>
+    <audio id="audio" loop preload="none"></audio>
+    <div class="toast" id="toast"></div>
 
-<audio id="audio" loop preload="none"></audio>
-<div class="toast" id="toast"></div>
-
-<script>
-/* =========================================================
+    <script>
+      /* =========================================================
    عدّل بيانات الدعوة من هنا فقط
    ========================================================= */
-const CONFIG = {
-  groom: "ماجد",
-  bride: "شوق",
-  groomFather: "السيد محمود الخطيب",
-  brideFather: "السيد خالد النجار",
-  date: "2026-11-05T19:00:00",            // تاريخ ووقت الحفل
-  durationHours: 5,
-  venueName: "فندق فورسيزونز",
-  venueAddress: "مركز المناسبات - القاعة الكبرى",
-  mapQuery: "Four Seasons Hotel",          // اسم المكان أو الإحداثيات مثل "31.9038,35.2034"
-  phone: "+970590000000",                  // رقم الاتصال
-  whatsapp: "970567453433",               // رقم واتساب لتأكيد الحضور (بدون +)
-  blessWhatsapp: "",                       // رقم واتساب لاستقبال المباركات (فارغ = نفس رقم تأكيد الحضور)
-  messagesApi: "https://script.google.com/macros/s/AKfycby7thNn82aBMjGvjiPHQXRadf8h4REhx8oAPVh3VFSTxxpCUJTYoCJWbk97gKo2b9nBsQ/exec",                         // رابط Google Apps Script لحفظ وعرض المباركات (انظر messages-backend.gs) — فارغ = الإرسال عبر واتساب
-  blessings: [                             // مباركات جاهزة يختار منها الضيف
-    "بارك الله لكما وبارك عليكما وجمع بينكما في خير",
-    "ألف مبروك، الله يتمم على خير ويسعد قلوبكم",
-    "بالرفاه والبنين، وعقبال الذرية الصالحة",
-    "مبروك لأحلى عرسان، أيامكم كلها فرح",
-  ],
-  music: "",                               // فارغ = لحن هادئ مدمج، أو ضع ملف mp3 بنفس المجلد واكتب اسمه مثل "music.mp3"
-  program: [
-    { time: "7:00 مساءً",  title: "استقبال الضيوف" },
-    { time: "8:00 مساءً",  title: "زفّة العروسين" },
-    { time: "9:00 مساءً",  title: "العشاء" },
-    { time: "10:00 مساءً", title: "قطع الكعكة" },
-    { time: "11:00 مساءً", title: "ختام الحفل" },
-  ],
-};
-/* ========================================================= */
+      const CONFIG = {
+        groom: "علي",
+        bride: "دينا",
+        groomFather: "السيد أحمد محمد ",
+        brideFather: "السيد  علي السيد",
+        date: "2026-10-25T19:00:00", // تاريخ ووقت الحفل
+        durationHours: 5,
+        venueName: "فندق فورسيزونز",
+        venueAddress: "مركز المناسبات - القاعة الكبرى",
+        mapQuery: "Four Seasons Hotel", // اسم المكان أو الإحداثيات مثل "31.9038,35.2034"
+        phone: "+970567453433", // رقم الاتصال
+        whatsapp: "970567453433", // رقم واتساب لتأكيد الحضور (بدون +)
+        blessWhatsapp: "", // رقم واتساب لاستقبال المباركات (فارغ = نفس رقم تأكيد الحضور)
+        messagesApi:
+          "https://script.google.com/macros/s/AKfycby7thNn82aBMjGvjiPHQXRadf8h4REhx8oAPVh3VFSTxxpCUJTYoCJWbk97gKo2b9nBsQ/exec", // رابط Google Apps Script لحفظ وعرض المباركات (انظر messages-backend.gs) — فارغ = الإرسال عبر واتساب
+        blessings: [
+          // مباركات جاهزة يختار منها الضيف
+          "بارك الله لكما وبارك عليكما وجمع بينكما في خير",
+          "الله يجعل بيتكم عامر بالمودة والرحمة",
+          "فرحتكم فرحتنا، الله يتمم لكم على خير",
+          "عقبال ما نفرح بأولادكم، ألف مبروك",
+        ],
+        music: "", // فارغ = لحن هادئ مدمج، أو ضع ملف mp3 بنفس المجلد واكتب اسمه مثل "music.mp3"
+        program: [
+          { time: "7:00 مساءً", title: "استقبال الأحبة" },
+          { time: "8:00 مساءً", title: "دخول العروسين" },
+          { time: "9:00 مساءً", title: "مائدة العشاء" },
+          { time: "10:00 مساءً", title: "كعكة الفرح" },
+          { time: "11:00 مساءً", title: "وداع على أمل اللقاء" },
+        ],
+      };
+      /* ========================================================= */
 
-const $ = s => document.querySelector(s);
-const icon = (id, cls = "ico-heart") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><use href="#${id}"/></svg>`;
-const eventDate = new Date(CONFIG.date);
+      const $ = (s) => document.querySelector(s);
+      const icon = (id, cls = "ico-heart") =>
+        `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><use href="#${id}"/></svg>`;
+      const eventDate = new Date(CONFIG.date);
 
-document.querySelectorAll("[data-f]").forEach(el => el.textContent = CONFIG[el.dataset.f] || "");
-document.title = `دعوة زفاف ${CONFIG.groom} & ${CONFIG.bride}`;
+      document
+        .querySelectorAll("[data-f]")
+        .forEach((el) => (el.textContent = CONFIG[el.dataset.f] || ""));
+      document.title = `${CONFIG.groom} & ${CONFIG.bride} | ليلة العمر`;
+      /* ---- dates ---- */
+      const f = (o) =>
+        new Intl.DateTimeFormat("ar-EG-u-nu-latn", o).format(eventDate);
+      const timeAr = f({ hour: "numeric", minute: "2-digit" });
+      $("#heroDate").textContent =
+        `${f({ weekday: "long" })} ${f({ day: "numeric" })} ${f({ month: "long" })} ${f({ year: "numeric" })} في ${timeAr}`;
+      $("#footDate").textContent = [
+        eventDate.getDate(),
+        eventDate.getMonth() + 1,
+        eventDate.getFullYear(),
+      ].join(" · ");
 
-/* ---- dates ---- */
-const f = o => new Intl.DateTimeFormat("ar-EG-u-nu-latn", o).format(eventDate);
-const timeAr = f({ hour: "numeric", minute: "2-digit" });
-$("#heroDate").textContent = `${f({ weekday: "long" })} ${f({ day: "numeric" })} ${f({ month: "long" })} ${f({ year: "numeric" })} في ${timeAr}`;
-$("#footDate").textContent = [eventDate.getDate(), eventDate.getMonth() + 1, eventDate.getFullYear()].join(" · ");
+      /* hero roses: static images/roses-garland.webp (two mirrored copies of the rose spray, pre-composed) */
 
-/* hero roses: static images/roses-garland.webp (two mirrored copies of the rose spray, pre-composed) */
+      /* ---- program timeline ---- */
+      $("#tlItems").innerHTML = CONFIG.program
+        .map(
+          (p) =>
+            `<div class="tl-item"><time>${p.time}</time><p>${p.title}</p></div>`,
+        )
+        .join("");
+      function updateTimeline() {
+        const tl = $("#timeline"),
+          r = tl.getBoundingClientRect();
+        const p = Math.min(
+          1,
+          Math.max(0, (innerHeight * 0.6 - r.top) / r.height),
+        );
+        const y = p * r.height;
+        $("#tlFill").style.height = y + "px";
+        $("#tlDot").style.top = y + "px";
+        document.querySelectorAll(".tl-item").forEach((el) => {
+          el.classList.toggle("on", el.offsetTop + 14 <= y + 4);
+        });
+      }
+      addEventListener("scroll", updateTimeline, { passive: true });
 
+      /* ---- map / call ---- */
+      const q = encodeURIComponent(CONFIG.mapQuery);
+      $("#map").src = `https://maps.google.com/maps?q=${q}&z=15&output=embed`;
+      document
+        .querySelectorAll(".mapLink")
+        .forEach(
+          (a) =>
+            (a.href = `https://www.google.com/maps/search/?api=1&query=${q}`),
+        );
+      $("#callBtn").href = `tel:${CONFIG.phone}`;
 
-/* ---- program timeline ---- */
-$("#tlItems").innerHTML = CONFIG.program.map(p =>
-  `<div class="tl-item"><time>${p.time}</time><p>${p.title}</p></div>`).join("");
-function updateTimeline() {
-  const tl = $("#timeline"), r = tl.getBoundingClientRect();
-  const p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / r.height));
-  const y = p * r.height;
-  $("#tlFill").style.height = y + "px";
-  $("#tlDot").style.top = y + "px";
-  document.querySelectorAll(".tl-item").forEach(el => {
-    el.classList.toggle("on", el.offsetTop + 14 <= y + 4);
-  });
-}
-addEventListener("scroll", updateTimeline, { passive: true });
+      /* ---- music: CONFIG.music file, or a soft built-in music-box tune when empty ---- */
+      const audio = $("#audio"),
+        musicBtn = $("#musicBtn");
+      if (CONFIG.music) audio.src = CONFIG.music;
+      const musicBox = (() => {
+        const eighth = 30 / 70; // 70 bpm
+        // C G Am Em F C F G — every melody note is a chord tone, so it always sounds sweet
+        const chords = [
+          [60, 64, 67],
+          [55, 59, 62],
+          [57, 60, 64],
+          [52, 55, 59],
+          [53, 57, 60],
+          [60, 64, 67],
+          [53, 57, 60],
+          [55, 59, 62],
+        ];
+        const melody = [
+          [76, 72],
+          [74, 71],
+          [72, 76],
+          [71, 67],
+          [69, 72],
+          [67, 64],
+          [69, 65],
+          [67, 74],
+        ];
+        let ctx,
+          out,
+          timer,
+          t0,
+          i = 0;
+        function init() {
+          ctx = new (window.AudioContext || window.webkitAudioContext)();
+          out = ctx.createGain();
+          out.gain.value = 0;
+          const lp = ctx.createBiquadFilter();
+          lp.frequency.value = 3800;
+          // synthetic hall reverb: decaying noise impulse
+          const rev = ctx.createConvolver(),
+            len = ctx.sampleRate * 3,
+            ir = ctx.createBuffer(2, len, ctx.sampleRate);
+          for (let c = 0; c < 2; c++) {
+            const d = ir.getChannelData(c);
+            for (let j = 0; j < len; j++)
+              d[j] = (Math.random() * 2 - 1) * (1 - j / len) ** 3;
+          }
+          rev.buffer = ir;
+          const wet = ctx.createGain();
+          wet.gain.value = 0.35;
+          out.connect(lp);
+          lp.connect(ctx.destination);
+          lp.connect(rev).connect(wet).connect(ctx.destination);
+        }
+        function note(m, t, dur, vol) {
+          const f = 440 * 2 ** ((m - 69) / 12),
+            g = ctx.createGain();
+          g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(vol, t + 0.015);
+          g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+          [
+            [1, 1],
+            [2, 0.3],
+            [3, 0.08],
+          ].forEach(([k, a]) => {
+            // bell-like partials
+            const o = ctx.createOscillator(),
+              og = ctx.createGain();
+            o.frequency.value = f * k;
+            og.gain.value = a;
+            o.connect(og).connect(g);
+            o.start(t);
+            o.stop(t + dur + 0.05);
+          });
+          g.connect(out);
+        }
+        function schedule() {
+          while (t0 < ctx.currentTime + 0.4) {
+            const bar = Math.floor(i / 8) % 8,
+              s = i % 8,
+              c = chords[bar];
+            const bass = c[0] - 12 < 48 ? c[0] : c[0] - 12;
+            note(
+              [bass, c[0], c[1], c[2], c[0] + 12, c[2], c[1], c[2]][s],
+              t0,
+              s ? 1.6 : 3,
+              s ? 0.08 : 0.13,
+            );
+            if (s % 4 === 0) note(melody[bar][s / 4] + 12, t0, 2.8, 0.11);
+            i++;
+            t0 += eighth;
+          }
+        }
+        return {
+          play() {
+            if (!ctx) init();
+            ctx.resume();
+            if (!timer) {
+              t0 = ctx.currentTime + 0.1;
+              schedule();
+              timer = setInterval(schedule, 100);
+            }
+            out.gain.cancelScheduledValues(ctx.currentTime);
+            out.gain.setTargetAtTime(0.5, ctx.currentTime, 0.6); // gentle fade-in
+          },
+          pause() {
+            if (!ctx) return;
+            out.gain.cancelScheduledValues(ctx.currentTime);
+            out.gain.setTargetAtTime(0, ctx.currentTime, 0.15);
+            clearInterval(timer);
+            timer = null;
+          },
+        };
+      })();
+      let musicOn = false;
+      function setMusic(on) {
+        musicOn = on;
+        musicBtn.classList.toggle("playing", on);
+        sound(on);
+      }
+      function sound(on) {
+        if (CONFIG.music)
+          on ? audio.play().catch(() => setMusic(false)) : audio.pause();
+        else on ? musicBox.play() : musicBox.pause();
+      }
+      musicBtn.addEventListener("click", () => setMusic(!musicOn));
+      // pause while the guest switches to another app/tab, resume when they come back
+      document.addEventListener(
+        "visibilitychange",
+        () => musicOn && sound(!document.hidden),
+      );
 
-/* ---- map / call ---- */
-const q = encodeURIComponent(CONFIG.mapQuery);
-$("#map").src = `https://maps.google.com/maps?q=${q}&z=15&output=embed`;
-document.querySelectorAll(".mapLink").forEach(a => a.href = `https://www.google.com/maps/search/?api=1&query=${q}`);
-$("#callBtn").href = `tel:${CONFIG.phone}`;
+      /* ---- open ---- */
+      $("#openBtn").addEventListener(
+        "click",
+        () => {
+          $("#intro").classList.add("gone");
+          document.body.classList.add("opened");
+          setTimeout(() => {
+            document.body.classList.remove("locked");
+            autoScroll();
+          }, 2000);
+          setMusic(true);
+          document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+        },
+        { once: true },
+      );
+      /* slow auto-scroll to the end; any touch, wheel or click by the guest stops it */
+      function autoScroll() {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        let raf,
+          y = scrollY;
+        const evs = ["wheel", "touchstart", "mousedown", "keydown"];
+        const stop = () => {
+          cancelAnimationFrame(raf);
+          evs.forEach((e) => removeEventListener(e, stop));
+        };
+        evs.forEach((e) => addEventListener(e, stop, { passive: true }));
+        (function step() {
+          y += 1;
+          scrollTo(0, y);
+          if (
+            innerHeight + scrollY >=
+            document.documentElement.scrollHeight - 5
+          )
+            return stop();
+          raf = requestAnimationFrame(step);
+        })();
+      }
+      /* ---- reveal ---- */
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.15 },
+      );
 
-/* ---- music: CONFIG.music file, or a soft built-in music-box tune when empty ---- */
-const audio = $("#audio"), musicBtn = $("#musicBtn");
-if (CONFIG.music) audio.src = CONFIG.music;
-const musicBox = (() => {
-  const eighth = 30 / 70; // 70 bpm
-  // C G Am Em F C F G — every melody note is a chord tone, so it always sounds sweet
-  const chords = [[60,64,67],[55,59,62],[57,60,64],[52,55,59],[53,57,60],[60,64,67],[53,57,60],[55,59,62]];
-  const melody = [[76,72],[74,71],[72,76],[71,67],[69,72],[67,64],[69,65],[67,74]];
-  let ctx, out, timer, t0, i = 0;
-  function init() {
-    ctx = new (window.AudioContext || window.webkitAudioContext)();
-    out = ctx.createGain(); out.gain.value = 0;
-    const lp = ctx.createBiquadFilter(); lp.frequency.value = 3800;
-    // synthetic hall reverb: decaying noise impulse
-    const rev = ctx.createConvolver(), len = ctx.sampleRate * 3, ir = ctx.createBuffer(2, len, ctx.sampleRate);
-    for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let j = 0; j < len; j++) d[j] = (Math.random() * 2 - 1) * (1 - j / len) ** 3; }
-    rev.buffer = ir;
-    const wet = ctx.createGain(); wet.gain.value = .35;
-    out.connect(lp); lp.connect(ctx.destination); lp.connect(rev).connect(wet).connect(ctx.destination);
-  }
-  function note(m, t, dur, vol) {
-    const f = 440 * 2 ** ((m - 69) / 12), g = ctx.createGain();
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(vol, t + .015);
-    g.gain.exponentialRampToValueAtTime(.0001, t + dur);
-    [[1, 1], [2, .3], [3, .08]].forEach(([k, a]) => { // bell-like partials
-      const o = ctx.createOscillator(), og = ctx.createGain();
-      o.frequency.value = f * k; og.gain.value = a;
-      o.connect(og).connect(g); o.start(t); o.stop(t + dur + .05);
-    });
-    g.connect(out);
-  }
-  function schedule() {
-    while (t0 < ctx.currentTime + .4) {
-      const bar = Math.floor(i / 8) % 8, s = i % 8, c = chords[bar];
-      const bass = c[0] - 12 < 48 ? c[0] : c[0] - 12;
-      note([bass, c[0], c[1], c[2], c[0] + 12, c[2], c[1], c[2]][s], t0, s ? 1.6 : 3, s ? .08 : .13);
-      if (s % 4 === 0) note(melody[bar][s / 4] + 12, t0, 2.8, .11);
-      i++; t0 += eighth;
-    }
-  }
-  return {
-    play() {
-      if (!ctx) init();
-      ctx.resume();
-      if (!timer) { t0 = ctx.currentTime + .1; schedule(); timer = setInterval(schedule, 100); }
-      out.gain.cancelScheduledValues(ctx.currentTime);
-      out.gain.setTargetAtTime(.5, ctx.currentTime, .6); // gentle fade-in
-    },
-    pause() {
-      if (!ctx) return;
-      out.gain.cancelScheduledValues(ctx.currentTime);
-      out.gain.setTargetAtTime(0, ctx.currentTime, .15);
-      clearInterval(timer); timer = null;
-    },
-  };
-})();
-let musicOn = false;
-function setMusic(on) { musicOn = on; musicBtn.classList.toggle("playing", on); sound(on); }
-function sound(on) {
-  if (CONFIG.music) on ? audio.play().catch(() => setMusic(false)) : audio.pause();
-  else on ? musicBox.play() : musicBox.pause();
-}
-musicBtn.addEventListener("click", () => setMusic(!musicOn));
-// pause while the guest switches to another app/tab, resume when they come back
-document.addEventListener("visibilitychange", () => musicOn && sound(!document.hidden));
+      /* ---- countdown ---- */
+      function tick() {
+        const diff = eventDate - new Date();
+        if (diff <= 0) {
+          $("#countdown").outerHTML =
+            `<p class="done-msg">اليوم يوم الفرح ${icon("heartPath")}</p>`;
+          return clearInterval(timer);
+        }
+        $("#cd-d").textContent = Math.floor(diff / 864e5);
+        $("#cd-h").textContent = Math.floor(diff / 36e5) % 24;
+        $("#cd-m").textContent = Math.floor(diff / 6e4) % 60;
+        $("#cd-s").textContent = Math.floor(diff / 1e3) % 60;
+      }
+      const timer = setInterval(tick, 1000);
+      tick();
 
-/* ---- open ---- */
-$("#openBtn").addEventListener("click", () => {
-  $("#intro").classList.add("gone");
-  document.body.classList.add("opened");
-  setTimeout(() => { document.body.classList.remove("locked"); autoScroll(); }, 2000);
-  setMusic(true);
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-}, { once: true });
-/* slow auto-scroll to the end; any touch, wheel or click by the guest stops it */
-function autoScroll() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let raf, y = scrollY;
-  const evs = ["wheel", "touchstart", "mousedown", "keydown"];
-  const stop = () => { cancelAnimationFrame(raf); evs.forEach(e => removeEventListener(e, stop)); };
-  evs.forEach(e => addEventListener(e, stop, { passive: true }));
-  (function step() {
-    y += 1; scrollTo(0, y);
-    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 5) return stop();
-    raf = requestAnimationFrame(step);
-  })();
-}
-/* ---- reveal ---- */
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-}), { threshold: .15 });
+      /* ---- save the date (.ics) ---- */
+      $("#calBtn").addEventListener("click", () => {
+        const z = (d) =>
+          d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+        const end = new Date(eventDate.getTime() + CONFIG.durationHours * 36e5);
+        const ics = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//wedding//AR",
+          "BEGIN:VEVENT",
+          "UID:" + Date.now() + "@wedding",
+          "DTSTAMP:" + z(new Date()),
+          "DTSTART:" + z(eventDate),
+          "DTEND:" + z(end),
+          `SUMMARY:زفاف ${CONFIG.groom} & ${CONFIG.bride}`,
+          `LOCATION:${CONFIG.venueName} - ${CONFIG.venueAddress}`,
+          "BEGIN:VALARM",
+          "TRIGGER:-P1D",
+          "ACTION:DISPLAY",
+          "DESCRIPTION:تذكير بالحفل",
+          "END:VALARM",
+          "END:VEVENT",
+          "END:VCALENDAR",
+        ].join("\r\n");
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(
+          new Blob([ics], { type: "text/calendar;charset=utf-8" }),
+        );
+        a.download = "wedding.ics";
+        a.click();
+        toast("تم حفظ الموعد");
+      });
 
-/* ---- countdown ---- */
-function tick() {
-  const diff = eventDate - new Date();
-  if (diff <= 0) { $("#countdown").outerHTML = `<p class="done-msg">اليوم يوم الفرح ${icon("heartPath")}</p>`; return clearInterval(timer); }
-  $("#cd-d").textContent = Math.floor(diff / 864e5);
-  $("#cd-h").textContent = Math.floor(diff / 36e5) % 24;
-  $("#cd-m").textContent = Math.floor(diff / 6e4) % 60;
-  $("#cd-s").textContent = Math.floor(diff / 1e3) % 60;
-}
-const timer = setInterval(tick, 1000); tick();
+      /* ---- RSVP → WhatsApp ---- */
+      document
+        .querySelectorAll("input[name=att]")
+        .forEach((r) =>
+          r.addEventListener(
+            "change",
+            () =>
+              ($("#countWrap").style.display = $("#yes").checked ? "" : "none"),
+          ),
+        );
+      document.querySelectorAll(".count button").forEach((b) =>
+        b.addEventListener("click", () => {
+          document.querySelectorAll(".count button").forEach((x) => {
+            x.classList.remove("on");
+            x.setAttribute("aria-checked", "false");
+          });
+          b.classList.add("on");
+          b.setAttribute("aria-checked", "true");
+          $("#gcount").value = b.textContent;
+        }),
+      );
+      /* WhatsApp message layout: *bold* title, couple line, thin separators */
+      const SEP = "┈┈┈┈┈┈┈┈┈┈";
+      const couple = `${CONFIG.groom} & ${CONFIG.bride}`;
+      $("#rsvp").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const yes = $("#yes").checked;
+        const msg = [
+          `💍 *ردّ على دعوة الزفاف*`,
+          `✨ ${couple} ✨`,
+          SEP,
+          `👤 الاسم: ${$("#gname").value.trim()}`,
+          yes ? `✅ أكيد، سأكون هناك` : `🌷 للأسف لن أتمكن من الحضور`,
+          ...(yes ? [`👥 عدد الأشخاص: ${$("#gcount").value}`] : []),
+          SEP,
+          yes ? `🤍 بانتظار يوم الفرح` : `🤍 ألف مبروك، وأتمنى لكم حياة سعيدة`,
+        ].join("\n");
+        const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+        if (!window.open(url, "_blank")) location.href = url; // in-app browsers block popups
+        toast("شكراً لتأكيدك", "heartPath");
+      });
 
-/* ---- save the date (.ics) ---- */
-$("#calBtn").addEventListener("click", () => {
-  const z = d => d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-  const end = new Date(eventDate.getTime() + CONFIG.durationHours * 36e5);
-  const ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//wedding//AR","BEGIN:VEVENT",
-    "UID:" + Date.now() + "@wedding","DTSTAMP:" + z(new Date()),"DTSTART:" + z(eventDate),"DTEND:" + z(end),
-    `SUMMARY:زفاف ${CONFIG.groom} & ${CONFIG.bride}`,`LOCATION:${CONFIG.venueName} - ${CONFIG.venueAddress}`,
-    "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:تذكير بالحفل","END:VALARM",
-    "END:VEVENT","END:VCALENDAR"].join("\r\n");
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-  a.download = "wedding.ics"; a.click();
-  toast("تم حفظ الموعد");
-});
+      /* ---- blessing → WhatsApp ---- */
+      const chips = $("#chips"),
+        bmsg = $("#bmsg");
+      chips.innerHTML = CONFIG.blessings
+        .map(
+          (b, i) =>
+            `<button type="button" class="chip" data-i="${i}">${b}</button>`,
+        )
+        .join("");
+      chips.addEventListener("click", (e) => {
+        const c = e.target.closest(".chip");
+        if (!c) return;
+        chips
+          .querySelectorAll(".chip")
+          .forEach((x) => x.classList.toggle("on", x === c));
+        bmsg.value = CONFIG.blessings[c.dataset.i];
+      });
+      bmsg.addEventListener("input", () =>
+        chips
+          .querySelectorAll(".chip")
+          .forEach((x) => x.classList.remove("on")),
+      );
+      $("#bless").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = $("#bname").value.trim(),
+          text = bmsg.value.trim();
+        if (!name || !text) return;
+        hearts(e.submitter || e.target);
+        if (!CONFIG.messagesApi) {
+          const msg = [
+            `💐 *مباركة للعروسين*`,
+            `✨ ${couple} ✨`,
+            SEP,
+            `«${text}»`,
+            SEP,
+            `✍️ ${name}`,
+          ].join("\n");
+          const url = `https://wa.me/${CONFIG.blessWhatsapp || CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+          if (!window.open(url, "_blank")) location.href = url;
+          toast("شكراً لمباركتك", "heartPath");
+          return;
+        }
+        const btn = e.submitter || $("#bless button[type=submit]");
+        btn.disabled = true;
+        try {
+          // text/plain avoids a CORS preflight, which Apps Script can't answer
+          const res = await fetch(CONFIG.messagesApi, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ name, text }),
+          });
+          const data = await res.json();
+          if (!data.ok) throw new Error(data.error);
+          wishes.unshift({ name, text, time: Date.now() });
+          renderWall();
+          $("#bless").reset();
+          chips
+            .querySelectorAll(".chip")
+            .forEach((x) => x.classList.remove("on"));
+          toast("شكراً لمباركتك", "heartPath");
+        } catch {
+          toast("تعذّر إرسال المباركة، حاول مرة أخرى", null);
+        } finally {
+          btn.disabled = false;
+        }
+      });
 
-/* ---- RSVP → WhatsApp ---- */
-document.querySelectorAll("input[name=att]").forEach(r =>
-  r.addEventListener("change", () => $("#countWrap").style.display = $("#yes").checked ? "" : "none"));
-document.querySelectorAll(".count button").forEach(b => b.addEventListener("click", () => {
-  document.querySelectorAll(".count button").forEach(x => { x.classList.remove("on"); x.setAttribute("aria-checked", "false"); });
-  b.classList.add("on"); b.setAttribute("aria-checked", "true");
-  $("#gcount").value = b.textContent;
-}));
-/* WhatsApp message layout: *bold* title, couple line, thin separators */
-const SEP = "┈┈┈┈┈┈┈┈┈┈";
-const couple = `${CONFIG.groom} & ${CONFIG.bride}`;
-$("#rsvp").addEventListener("submit", e => {
-  e.preventDefault();
-  const yes = $("#yes").checked;
-  const msg = [
-    `💍 *تأكيد حضور حفل الزفاف*`,
-    `✨ ${couple} ✨`,
-    SEP,
-    `👤 الاسم: ${$("#gname").value.trim()}`,
-    yes ? `✅ الحضور: سأحضر بإذن الله` : `🌷 الحضور: أعتذر عن الحضور`,
-    ...(yes ? [`👥 عدد الأشخاص: ${$("#gcount").value}`] : []),
-    SEP,
-    yes ? `🤍 بانتظار يوم الفرح` : `🤍 ألف مبروك، وأتمنى لكم حياة سعيدة`,
-  ].join("\n");
-  const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-  if (!window.open(url, "_blank")) location.href = url;   // in-app browsers block popups
-  toast("شكراً لتأكيدك", "heartPath");
-});
+      /* ---- blessings wall ---- */
+      let wishes = [];
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const ago = (t) => {
+        const m = Math.round((Date.now() - t) / 60000);
+        if (m < 1) return "الآن";
+        if (m < 60) return `قبل ${m} دقيقة`;
+        if (m < 1440) return `قبل ${Math.round(m / 60)} ساعة`;
+        return new Intl.DateTimeFormat("ar-EG-u-nu-latn", {
+          day: "numeric",
+          month: "long",
+        }).format(t);
+      };
+      function renderWall() {
+        $("#wall").hidden = false;
+        $("#wallList").innerHTML = wishes.length
+          ? wishes
+              .map(
+                (w) =>
+                  `<div class="wish"><p>${esc(w.text)}</p><div class="by"><b>— ${esc(w.name)}</b><span>${ago(w.time)}</span></div></div>`,
+              )
+              .join("")
+          : `<p class="wall-empty">ابدأ أنت أول مباركة ${icon("heartPath")}</p>`;
+      }
+      if (CONFIG.messagesApi) {
+        fetch(CONFIG.messagesApi)
+          .then((r) => r.json())
+          .then((d) => {
+            wishes = (d.messages || []).sort((a, b) => b.time - a.time);
+            renderWall();
+          })
+          .catch(() => {});
+      }
+      function hearts(el) {
+        const r = el.getBoundingClientRect();
+        for (let i = 0; i < 12; i++) {
+          const h = document.createElement("span");
+          // gold / cream hearts with a few sparkles, drawn as SVG so they match the palette on every device
+          const [id, color] = [
+            ["heartPath", "#fff8e6"],
+            ["heartPath", "#f0d79a"],
+            ["heartPath", "#d6b26a"],
+            ["sparkPath", "#f0d79a"],
+          ][i % 4];
+          h.className = "heart";
+          h.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}"><use href="#${id}"/></svg>`;
+          h.style.left =
+            r.left + r.width / 2 + (Math.random() * 60 - 30) + "px";
+          h.style.top = r.top + "px";
+          h.style.setProperty("--dx", Math.random() * 160 - 80 + "px");
+          h.style.animationDelay = i * 60 + "ms";
+          document.body.appendChild(h);
+          setTimeout(() => h.remove(), 2600);
+        }
+      }
 
-/* ---- blessing → WhatsApp ---- */
-const chips = $("#chips"), bmsg = $("#bmsg");
-chips.innerHTML = CONFIG.blessings.map((b, i) => `<button type="button" class="chip" data-i="${i}">${b}</button>`).join("");
-chips.addEventListener("click", e => {
-  const c = e.target.closest(".chip"); if (!c) return;
-  chips.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === c));
-  bmsg.value = CONFIG.blessings[c.dataset.i];
-});
-bmsg.addEventListener("input", () => chips.querySelectorAll(".chip").forEach(x => x.classList.remove("on")));
-$("#bless").addEventListener("submit", async e => {
-  e.preventDefault();
-  const name = $("#bname").value.trim(), text = bmsg.value.trim();
-  if (!name || !text) return;
-  hearts(e.submitter || e.target);
-  if (!CONFIG.messagesApi) {
-    const msg = [`💐 *مباركة للعروسين*`, `✨ ${couple} ✨`, SEP, `«${text}»`, SEP, `✍️ ${name}`].join("\n");
-    const url = `https://wa.me/${CONFIG.blessWhatsapp || CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-    if (!window.open(url, "_blank")) location.href = url;
-    toast("شكراً لمباركتك", "heartPath");
-    return;
-  }
-  const btn = e.submitter || $("#bless button[type=submit]");
-  btn.disabled = true;
-  try {
-    // text/plain avoids a CORS preflight, which Apps Script can't answer
-    const res = await fetch(CONFIG.messagesApi, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ name, text }) });
-    const data = await res.json();
-    if (!data.ok) throw new Error(data.error);
-    wishes.unshift({ name, text, time: Date.now() });
-    renderWall();
-    $("#bless").reset();
-    chips.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
-    toast("شكراً لمباركتك", "heartPath");
-  } catch {
-    toast("تعذّر إرسال المباركة، حاول مرة أخرى", null);
-  } finally {
-    btn.disabled = false;
-  }
-});
+      /* ---- share invitation (native share sheet, else copy the link) ---- */
+      $("#shareBtn").addEventListener("click", async () => {
+        const text = [
+          `💍 ليلة العمر`,
+          `✨ ${couple} ✨`,
+          `📅 ${$("#heroDate").textContent}`,
+          `📍 ${CONFIG.venueName}`,
+          `🤍 فرحتنا لا تكتمل إلا بكم`,
+        ].join("\n");
+        const data = { title: document.title, text, url: location.href };
+        if (navigator.share) {
+          try {
+            await navigator.share(data);
+          } catch {}
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(location.href);
+          toast("تم نسخ رابط الدعوة");
+        } catch {
+          toast("تعذّر نسخ الرابط", null);
+        }
+      });
 
-/* ---- blessings wall ---- */
-let wishes = [];
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const ago = t => {
-  const m = Math.round((Date.now() - t) / 60000);
-  if (m < 1) return "الآن";
-  if (m < 60) return `قبل ${m} دقيقة`;
-  if (m < 1440) return `قبل ${Math.round(m / 60)} ساعة`;
-  return new Intl.DateTimeFormat("ar-EG-u-nu-latn", { day: "numeric", month: "long" }).format(t);
-};
-function renderWall() {
-  $("#wall").hidden = false;
-  $("#wallList").innerHTML = wishes.length
-    ? wishes.map(w => `<div class="wish"><p>${esc(w.text)}</p><div class="by"><b>— ${esc(w.name)}</b><span>${ago(w.time)}</span></div></div>`).join("")
-    : `<p class="wall-empty">كن أول من يبارك للعروسين ${icon("heartPath")}</p>`;
-}
-if (CONFIG.messagesApi) {
-  fetch(CONFIG.messagesApi)
-    .then(r => r.json())
-    .then(d => { wishes = (d.messages || []).sort((a, b) => b.time - a.time); renderWall(); })
-    .catch(() => {});
-}
-function hearts(el) {
-  const r = el.getBoundingClientRect();
-  for (let i = 0; i < 12; i++) {
-    const h = document.createElement("span");
-    // gold / cream hearts with a few sparkles, drawn as SVG so they match the palette on every device
-    const [id, color] = [["heartPath", "#fff8e6"], ["heartPath", "#f0d79a"], ["heartPath", "#d6b26a"], ["sparkPath", "#f0d79a"]][i % 4];
-    h.className = "heart"; h.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}"><use href="#${id}"/></svg>`;
-    h.style.left = r.left + r.width / 2 + (Math.random() * 60 - 30) + "px";
-    h.style.top = r.top + "px";
-    h.style.setProperty("--dx", (Math.random() * 160 - 80) + "px");
-    h.style.animationDelay = i * 60 + "ms";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 2600);
-  }
-}
-
-/* ---- share invitation (native share sheet, else copy the link) ---- */
-$("#shareBtn").addEventListener("click", async () => {
-  const text = [
-    `💍 دعوة حفل زفاف`,
-    `✨ ${couple} ✨`,
-    `📅 ${$("#heroDate").textContent}`,
-    `📍 ${CONFIG.venueName}`,
-    `🤍 يسعدنا حضوركم ومشاركتكم فرحتنا`,
-  ].join("\n");
-  const data = { title: document.title, text, url: location.href };
-  if (navigator.share) { try { await navigator.share(data); } catch {} return; }
-  try { await navigator.clipboard.writeText(location.href); toast("تم نسخ رابط الدعوة"); }
-  catch { toast("تعذّر نسخ الرابط", null); }
-});
-
-/* toast with a small gold icon (check by default, null for errors) */
-let toastT;
-function toast(t, ico = "checkPath") {
-  const el = $("#toast");
-  el.innerHTML = (ico ? icon(ico, "") : "") + `<span>${esc(t)}</span>`;
-  el.classList.add("show");
-  clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("show"), 2200);
-}
-</script>
-</body>
+      /* toast with a small gold icon (check by default, null for errors) */
+      let toastT;
+      function toast(t, ico = "checkPath") {
+        const el = $("#toast");
+        el.innerHTML = (ico ? icon(ico, "") : "") + `<span>${esc(t)}</span>`;
+        el.classList.add("show");
+        clearTimeout(toastT);
+        toastT = setTimeout(() => el.classList.remove("show"), 2200);
+      }
+    </script>
+  </body>
 </html>
